@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "Skills",
+    "description": "I have a diverse skill set in software engineering, with expertise in various programming languages, frameworks, databases, tools, and platforms.",
+    "lastUpdated": "2025-01-18"
+  },
+  "categories": [
+    {
+      "id": "programming-languages",
+      "name": "Programming Languages",
+      "icon": "code",
+      "skills": [
+        {
+          "name": "Python",
+          "level": "Advanced",
+          "years": 5,
+          "description": "Backend development, data analysis, machine learning"
+        },
+        {
+          "name": "JavaScript",
+          "level": "Advanced", 
+          "years": 5,
+          "description": "Frontend and backend development, Node.js"
+        },
+        {
+          "name": "TypeScript",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "Type-safe JavaScript development"
+        },
+        {
+          "name": "Java",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "Enterprise applications, Spring framework"
+        },
+        {
+          "name": "C++",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "System programming, performance-critical applications"
+        },
+        {
+          "name": "Go",
+          "level": "Beginner",
+          "years": 1,
+          "description": "Microservices, concurrent programming"
+        }
+      ]
+    },
+    {
+      "id": "frameworks-libraries",
+      "name": "Frameworks & Libraries",
+      "icon": "layers",
+      "skills": [
+        {
+          "name": "React",
+          "level": "Advanced",
+          "years": 4,
+          "description": "Modern web applications, hooks, context"
+        },
+        {
+          "name": "Next.js",
+          "level": "Advanced",
+          "years": 3,
+          "description": "Full-stack React applications, SSR, SSG"
+        },
+        {
+          "name": "Vue.js",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Progressive web applications"
+        },
+        {
+          "name": "Angular",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Enterprise web applications"
+        },
+        {
+          "name": "Node.js",
+          "level": "Advanced",
+          "years": 4,
+          "description": "Backend APIs, microservices"
+        },
+        {
+          "name": "Express.js",
+          "level": "Advanced",
+          "years": 4,
+          "description": "RESTful APIs, middleware"
+        },
+        {
+          "name": "Spring Boot",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Java enterprise applications"
+        },
+        {
+          "name": "Django",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Python web applications"
+        }
+      ]
+    },
+    {
+      "id": "databases",
+      "name": "Databases",
+      "icon": "database",
+      "skills": [
+        {
+          "name": "PostgreSQL",
+          "level": "Advanced",
+          "years": 4,
+          "description": "ACID transactions, complex queries, performance tuning"
+        },
+        {
+          "name": "MongoDB",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "Document-based NoSQL, aggregation pipelines"
+        },
+        {
+          "name": "MySQL",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "Relational database design, optimization"
+        },
+        {
+          "name": "Redis",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Caching, session storage, pub/sub"
+        },
+        {
+          "name": "Elasticsearch",
+          "level": "Beginner",
+          "years": 1,
+          "description": "Search engine, log analysis"
+        }
+      ]
+    },
+    {
+      "id": "cloud-devops",
+      "name": "Cloud & DevOps",
+      "icon": "cloud",
+      "skills": [
+        {
+          "name": "AWS",
+          "level": "Advanced",
+          "years": 4,
+          "description": "EC2, S3, Lambda, RDS, CloudFormation"
+        },
+        {
+          "name": "Docker",
+          "level": "Advanced",
+          "years": 3,
+          "description": "Containerization, multi-stage builds"
+        },
+        {
+          "name": "Kubernetes",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Container orchestration, deployments"
+        },
+        {
+          "name": "Azure",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Cloud services, Azure DevOps"
+        },
+        {
+          "name": "Terraform",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Infrastructure as Code"
+        },
+        {
+          "name": "Jenkins",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "CI/CD pipelines, automation"
+        },
+        {
+          "name": "GitHub Actions",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "Workflow automation, deployment"
+        }
+      ]
+    },
+    {
+      "id": "tools-platforms",
+      "name": "Tools & Platforms",
+      "icon": "tool",
+      "skills": [
+        {
+          "name": "Git",
+          "level": "Advanced",
+          "years": 5,
+          "description": "Version control, branching strategies, Git flow"
+        },
+        {
+          "name": "Linux",
+          "level": "Advanced",
+          "years": 5,
+          "description": "System administration, shell scripting"
+        },
+        {
+          "name": "VS Code",
+          "level": "Advanced",
+          "years": 4,
+          "description": "Extension development, debugging"
+        },
+        {
+          "name": "Figma",
+          "level": "Intermediate",
+          "years": 2,
+          "description": "UI/UX design, prototyping"
+        },
+        {
+          "name": "Postman",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "API testing, documentation"
+        },
+        {
+          "name": "Jira",
+          "level": "Intermediate",
+          "years": 3,
+          "description": "Project management, agile workflows"
+        }
+      ]
+    }
+  ]
+}

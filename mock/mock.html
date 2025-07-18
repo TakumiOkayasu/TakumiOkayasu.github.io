@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emily Wong - Software Engineer Portfolio. Passionate about building scalable applications with modern web technologies.">
+    <meta name="author" content="Emily Wong">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    
+    <!-- Font loading with proper fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700"></noscript>
+    
+    <title>Emily Wong - Software Engineer Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='20'>💻</text></svg>">
+    
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-text': '#0c151d',
+                        'secondary-text': '#4577a1',
+                        'background': '#f8fafc',
+                        'surface': '#e6eef4',
+                        'border': '#e6eef4'
+                    },
+                    fontFamily: {
+                        'sans': ['Space Grotesk', 'Noto Sans', 'system-ui', '-apple-system', 'sans-serif']
+                    },
+                    animation: {
+                        'spin': 'spin 1s linear infinite',
+                        'fade-in': 'fadeIn 0.3s ease-in-out',
+                        'slide-in-right': 'slideInRight 0.3s ease-out'
+                    },
+                    keyframes: {
+                        spin: {
+                            'to': { transform: 'rotate(360deg)' }
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0', visibility: 'hidden' },
+                            'to': { opacity: '1', visibility: 'visible' }
+                        },
+                        slideInRight: {
+                            'from': { transform: 'translateX(100%)' },
+                            'to': { transform: 'translateX(0)' }
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Section visibility management */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: flex;
+        }
+        
+        /* Hamburger menu animation */
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* Mobile navigation states */
+        .mobile-nav-overlay[aria-hidden="false"] {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-nav-menu[data-state="open"] {
+            right: 0;
+        }
+        
+        /* Skill filter button active state */
+        button[aria-pressed="true"] {
+            background-color: #4577a1;
+            color: white;
+        }
+        
+        /* Touch device hover effects */
+        @media (hover: none) {
+            .skill-card:hover {
+                transform: none;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+    
+</head>
+<body class="font-sans bg-background text-primary-text">
+    <!-- Skip navigation link for accessibility -->
+    <a href="#main-content" class="absolute -top-10 left-1.5 bg-primary-text text-white p-2 no-underline z-[100] focus:top-1.5">Skip to main content</a>
+    
+    <div class="relative flex w-full h-full min-h-screen flex-col bg-slate-50 overflow-x-hidden">
+        <div class="min-h-screen flex h-full grow flex-col">
+            <!-- Header with semantic navigation -->
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-border px-4 py-3 md:px-10" role="banner">
+                <div class="flex items-center gap-4 text-primary-text">
+                    <div class="w-4 h-4" aria-hidden="true">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portfolio logo">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </div>
+                    <h1 class="text-primary-text text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">Tech Portfolio</h1>
+                </div>
+                
+                <div class="flex flex-1 justify-end gap-8">
+                    <!-- Desktop navigation -->
+                    <nav class="hidden md:flex items-center gap-9" role="navigation" aria-label="Main navigation">
+                        <button 
+                            class="text-primary-text text-sm font-medium leading-normal cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text transition-opacity duration-300 ease-in-out" 
+                            data-section="about" 
+                            aria-pressed="true"
+                            aria-describedby="nav-about-desc"
+                        >
+                            About
+                        </button>
+                        <span id="nav-about-desc" class="sr-only">About Emily Wong and her background</span>
+                        
+                        <button 
+                            class="text-primary-text text-sm font-medium leading-normal cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text transition-opacity duration-300 ease-in-out" 
+                            data-section="experience"
+                            aria-pressed="false"
+                            aria-describedby="nav-experience-desc"
+                        >
+                            Experience
+                        </button>
+                        <span id="nav-experience-desc" class="sr-only">Work experience and career timeline</span>
+                        
+                        <button 
+                            class="text-primary-text text-sm font-medium leading-normal cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text transition-opacity duration-300 ease-in-out" 
+                            data-section="skills"
+                            aria-pressed="false"
+                            aria-describedby="nav-skills-desc"
+                        >
+                            Skills
+                        </button>
+                        <span id="nav-skills-desc" class="sr-only">Technical skills and expertise</span>
+                        
+                        <button 
+                            class="text-primary-text text-sm font-medium leading-normal cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text transition-opacity duration-300 ease-in-out" 
+                            data-section="projects"
+                            aria-pressed="false"
+                            aria-describedby="nav-projects-desc"
+                        >
+                            Projects
+                        </button>
+                        <span id="nav-projects-desc" class="sr-only">Portfolio projects and case studies</span>
+                        
+                        <button 
+                            class="text-primary-text text-sm font-medium leading-normal cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text transition-opacity duration-300 ease-in-out" 
+                            data-section="contact"
+                            aria-pressed="false"
+                            aria-describedby="nav-contact-desc"
+                        >
+                            Contact
+                        </button>
+                        <span id="nav-contact-desc" class="sr-only">Contact information and social links</span>
+                    </nav>
+                    
+                    <!-- Mobile hamburger button -->
+                    <button 
+                        class="flex md:hidden flex-col justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer p-0 hamburger-btn" 
+                        aria-label="Toggle mobile menu"
+                        aria-expanded="false"
+                        id="mobile-menu-btn"
+                    >
+                        <div class="w-6 h-0.5 bg-primary-text transition-all duration-300 origin-center hamburger-line"></div>
+                        <div class="w-6 h-0.5 bg-primary-text transition-all duration-300 my-1 hamburger-line"></div>
+                        <div class="w-6 h-0.5 bg-primary-text transition-all duration-300 origin-center hamburger-line"></div>
+                    </button>
+                    
+                    <!-- Profile image -->
+                    <div
+                        class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 h-10"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFssU1g9UdYmGfN3g5HJ6Dacwq0BCHYn9Y21OIiVXUqFP84m9KNxX4OafNZBSYRcPjF3VdJBY2LHOc_RBMXWyE7Si4dIkVzchFBQZyeojgRm_-eRVbiSIKS1XkUNFxYsr8TZSwpvBQ75ECnNrp_KOHvSAN7eKjEBDxSNGZvOklMJGaMHJvI99Ll2b6KAa42PsIrLytPoBJRd1F4Ka-XemfCXZBywLYVPzFbWHhDg75RFfxzgADRqNNGu0ydlkXX1m6ZE4gNdnQ9OQ");'
+                        role="img"
+                        aria-label="Emily Wong profile picture"
+                    ></div>
+                </div>
+            </header>
+            
+            <!-- Mobile navigation overlay -->
+            <div class="fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300 ease-in-out" id="mobile-nav-overlay" aria-hidden="true"></div>
+            
+            <!-- Mobile navigation menu -->
+            <nav class="fixed top-0 -right-full w-[280px] h-screen bg-white z-50 transition-all duration-300 ease-out mobile-nav-menu" id="mobile-nav-menu" role="navigation" aria-label="Mobile navigation" data-state="closed" style="box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1)">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-lg font-bold text-primary-text">Menu</h2>
+                        <button 
+                            class="text-primary-text p-2" 
+                            aria-label="Close mobile menu"
+                            id="mobile-menu-close"
+                        >
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <button 
+                            class="block w-full text-left py-3 px-4 text-primary-text font-medium rounded-lg hover:bg-surface transition-colors" 
+                            data-section="about"
+                        >
+                            About
+                        </button>
+                        <button 
+                            class="block w-full text-left py-3 px-4 text-primary-text font-medium rounded-lg hover:bg-surface transition-colors" 
+                            data-section="experience"
+                        >
+                            Experience
+                        </button>
+                        <button 
+                            class="block w-full text-left py-3 px-4 text-primary-text font-medium rounded-lg hover:bg-surface transition-colors" 
+                            data-section="skills"
+                        >
+                            Skills
+                        </button>
+                        <button 
+                            class="block w-full text-left py-3 px-4 text-primary-text font-medium rounded-lg hover:bg-surface transition-colors" 
+                            data-section="projects"
+                        >
+                            Projects
+                        </button>
+                        <button 
+                            class="block w-full text-left py-3 px-4 text-primary-text font-medium rounded-lg hover:bg-surface transition-colors" 
+                            data-section="contact"
+                        >
+                            Contact
+                        </button>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-border">
+                        <div class="flex items-center gap-3">
+                            <img
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFssU1g9UdYmGfN3g5HJ6Dacwq0BCHYn9Y21OIiVXUqFP84m9KNxX4OafNZBSYRcPjF3VdJBY2LHOc_RBMXWyE7Si4dIkVzchFBQZyeojgRm_-eRVbiSIKS1XkUNFxYsr8TZSwpvBQ75ECnNrp_KOHvSAN7eKjEBDxSNGZvOklMJGaMHJvI99Ll2b6KAa42PsIrLytPoBJRd1F4Ka-XemfCXZBywLYVPzFbWHhDg75RFfxzgADRqNNGu0ydlkXX1m6ZE4gNdnQ9OQ"
+                                alt="Emily Wong"
+                                class="w-10 h-10 rounded-full"
+                            >
+                            <div>
+                                <p class="font-medium text-primary-text">Emily Wong</p>
+                                <p class="text-sm text-secondary-text">Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Main content area -->
+            <main id="main-content" class="flex-1" role="main">
+                <!-- About Section -->
+                <section id="about" class="section active px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 flex flex-1 justify-center py-5" aria-labelledby="about-heading">
+                    <div class="flex flex-col max-w-[960px] flex-1">
+                        <div class="flex p-4">
+                            <div class="flex w-full flex-col gap-4 items-center">
+                                <div class="flex gap-4 flex-col items-center">
+                                    <img
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqh5wX2eZ1iMXek87Tus_nfKIUO_vEME_2d-5e7Laasz_utALSYo0bvd7ADskTGNIiwfac2HGLcmeWa7fBqs2rsEovjgJAbUzurXei5KaonIY7oYLAqzz7yrWQgtb0wl9qxKVL9VgdJqJx7TYZFlSBcSTED8qW9SsNc2NmX8S1dyb6nJzUrLoCAr7dFfO8ZRAese_X0XPUMv5lAmwhiBFCqq-MEiLbil4iVNWoljAA7ySWXHd6Ztij1ilYzCGfl5P0EQfOYGx67S4"
+                                        alt="Emily Wong profile photo"
+                                        class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32"
+                                        loading="lazy"
+                                    >
+                                    <div class="flex flex-col items-center justify-center">
+                                        <h2 class="text-primary-text text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Emily Wong</h2>
+                                        <p class="text-secondary-text text-base font-normal leading-normal text-center">Software Engineer</p>
+                                        <p class="text-secondary-text text-base font-normal leading-normal text-center">
+                                            Passionate software engineer with a focus on building scalable and efficient applications. Experienced in full-stack development, cloud technologies, and
+                                            agile methodologies.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 id="about-heading" class="text-primary-text text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">About</h3>
+                        <p class="text-primary-text text-base font-normal leading-normal pb-3 pt-1 px-4">
+                            I am a software engineer with over 5 years of experience in developing and maintaining web applications. My expertise lies in full-stack development, with a strong
+                            foundation in front-end technologies like React and back-end frameworks such as Node.js and Python. I am passionate about creating innovative solutions and
+                            continuously learning new technologies to stay at the forefront of the industry.
+                        </p>
+                        
+                        <h3 class="text-primary-text text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Skills Overview</h3>
+                        <div class="flex gap-3 p-3 flex-wrap pr-4" role="list" aria-label="Featured skills">
+                            <span class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4" role="listitem">
+                                <span class="text-primary-text text-sm font-medium leading-normal">React</span>
+                            </span>
+                            <span class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4" role="listitem">
+                                <span class="text-primary-text text-sm font-medium leading-normal">Node.js</span>
+                            </span>
+                            <span class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4" role="listitem">
+                                <span class="text-primary-text text-sm font-medium leading-normal">Python</span>
+                            </span>
+                            <span class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4" role="listitem">
+                                <span class="text-primary-text text-sm font-medium leading-normal">AWS</span>
+                            </span>
+                            <span class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4" role="listitem">
+                                <span class="text-primary-text text-sm font-medium leading-normal">Docker</span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Experience Section -->
+                <section id="experience" class="section px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 flex flex-1 justify-center py-5" aria-labelledby="experience-heading">
+                    <div class="flex flex-col max-w-[960px] flex-1">
+                        <div class="flex flex-wrap justify-between gap-3 p-4">
+                            <div class="flex min-w-72 flex-col gap-3">
+                                <h2 id="experience-heading" class="text-primary-text tracking-light text-[32px] font-bold leading-tight">Work Experience</h2>
+                                <p class="text-secondary-text text-sm font-normal leading-normal">A timeline of my professional journey in software engineering</p>
+                            </div>
+                        </div>
+                        
+                        <div class="px-4" role="list" aria-label="Work experience timeline">
+                            <article class="mb-8" role="listitem">
+                                <h3 class="text-primary-text text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">Senior Software Engineer</h3>
+                                <p class="text-secondary-text text-base font-normal leading-normal">Tech Innovators Inc. | Jan 2020 - Present</p>
+                                <p class="text-primary-text text-base font-normal leading-normal pb-3 pt-1">
+                                    Led the development of a scalable e-commerce platform, resulting in a 40% increase in transaction throughput. Mentored junior engineers and introduced agile
+                                    methodologies to the team. Spearheaded the integration of AI-driven personalization features, enhancing user engagement by 25%.
+                                </p>
+                            </article>
+                            
+                            <article class="mb-8" role="listitem">
+                                <h3 class="text-primary-text text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">Software Engineer</h3>
+                                <p class="text-secondary-text text-base font-normal leading-normal">Code Crafters LLC | Jun 2018 - Dec 2019</p>
+                                <p class="text-primary-text text-base font-normal leading-normal pb-3 pt-1">
+                                    Developed and maintained key features for a popular social media application, focusing on performance optimization and user experience. Collaborated with
+                                    cross-functional teams to deliver high-quality software solutions. Implemented a new user authentication system, improving security and reducing login failures by
+                                    15%.
+                                </p>
+                            </article>
+                            
+                            <article class="mb-8" role="listitem">
+                                <h3 class="text-primary-text text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">Junior Developer</h3>
+                                <p class="text-secondary-text text-base font-normal leading-normal">Startup Solutions Co. | Aug 2016 - May 2018</p>
+                                <p class="text-primary-text text-base font-normal leading-normal pb-3 pt-1">
+                                    Contributed to the development of a web-based project management tool, gaining experience in full-stack development. Worked closely with senior developers to learn
+                                    best practices and improve coding skills. Successfully launched a new feature for task prioritization, which was well-received by users and improved task completion
+                                    rates by 10%.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Skills Section -->
+                <section id="skills" class="section px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 flex flex-1 justify-center py-5" aria-labelledby="skills-heading">
+                    <div class="flex flex-col max-w-[960px] flex-1">
+                        <div class="flex flex-wrap justify-between gap-3 p-4">
+                            <div class="flex min-w-72 flex-col gap-3">
+                                <h2 id="skills-heading" class="text-primary-text tracking-light text-[32px] font-bold leading-tight">Skills</h2>
+                                <p id="skills-description" class="text-secondary-text text-sm font-normal leading-normal">
+                                    Loading skills data...
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Skills filter buttons -->
+                        <div class="px-4 py-3">
+                            <div class="flex gap-2 flex-wrap" role="group" aria-label="Skill category filters">
+                                <button 
+                                    class="skill-filter-btn flex h-7 md:h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface px-3 md:px-4 text-xs md:text-sm font-medium focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text hover:bg-opacity-80 transition-colors min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0" 
+                                    data-filter="all" 
+                                    aria-pressed="true"
+                                >
+                                    All Skills
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic skills container -->
+                        <div id="skills-container" class="px-4" role="region" aria-live="polite" aria-label="Skills data">
+                            <!-- Skills will be loaded here dynamically -->
+                            <div class="flex items-center justify-center py-8">
+                                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4577a1]"></div>
+                                <span class="ml-3 text-secondary-text">Loading skills...</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Projects Section -->
+                <section id="projects" class="section px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 flex flex-1 justify-center py-5" aria-labelledby="projects-heading">
+                    <div class="flex flex-col max-w-[960px] flex-1">
+                        <div class="flex flex-wrap justify-between gap-3 p-4">
+                            <div class="flex min-w-72 flex-col gap-3">
+                                <h2 id="projects-heading" class="text-primary-text tracking-light text-[32px] font-bold leading-tight">My Projects</h2>
+                                <p class="text-secondary-text text-sm font-normal leading-normal">
+                                    Explore a selection of my most impactful projects, showcasing my skills and experience in software engineering.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="px-4 py-3">
+                            <label for="project-search" class="flex flex-col min-w-40 h-12 w-full">
+                                <span class="sr-only">Search projects</span>
+                                <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                                    <div class="text-secondary-text flex border-none bg-surface items-center justify-center pl-4 rounded-l-xl border-r-0" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" role="img" aria-label="Search icon">
+                                            <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        id="project-search"
+                                        type="search"
+                                        placeholder="Search projects..."
+                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-primary-text focus:outline-0 focus:ring-0 border-none bg-surface focus:border-none h-full placeholder:text-secondary-text px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                                        aria-describedby="search-help"
+                                    >
+                                </div>
+                                <span id="search-help" class="sr-only">Search through project titles and descriptions</span>
+                            </label>
+                        </div>
+                        
+                        <div class="flex gap-3 p-3 flex-wrap" role="group" aria-label="Project category filters">
+                            <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4 focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" aria-pressed="true">All</button>
+                            <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4 focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" aria-pressed="false">Web</button>
+                            <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4 focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" aria-pressed="false">Mobile</button>
+                            <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface pl-4 pr-4 focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" aria-pressed="false">AI</button>
+                        </div>
+                        
+                        <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 p-4" role="list" aria-label="Project portfolio">
+                            <article class="flex flex-col gap-3 pb-3" role="listitem">
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqsY4nl0KsnqESwB3ruGHtTY9Pohtc6Kg7diExsHthAQxW1UJuYaKOGJ2aDQ7cJR6vnjT2H1PcXUfZ4g1gwnHdwT1r8zHuOHOdIzx5RGOYuMIyHxjCl06m1NCOUVJRx4XHS7TMKRgTNuhikpAGtaFqiV2euKgmv3pj6oY4B9qwj87FHVB3UCKqUokR9NKBlx3MO7jSIDF9Vx7tUxvMqE8zjqDwdBLUNjL2e6d-WZ5H_3YaJv4-Wy5mrwnSIVzww-gGXgR5Tnh9EIE"
+                                    alt="E-commerce Platform project preview"
+                                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                                    loading="lazy"
+                                >
+                                <div>
+                                    <h3 class="text-primary-text text-base font-medium leading-normal">E-commerce Platform</h3>
+                                    <p class="text-secondary-text text-sm font-normal leading-normal">
+                                        A full-featured e-commerce platform with user authentication, product management, and secure payment processing.
+                                    </p>
+                                </div>
+                            </article>
+                            
+                            <article class="flex flex-col gap-3 pb-3" role="listitem">
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCff9M6kRZt0qo3m51ONzRDw0QbpokKBB498p9P3F_C4uD44EhpMCc3ekDF93XYyBYDWCqQt2grbCfnA6FzinM7ukq3jvXVQZQosVcUvXw9F8_E93xupyq2fKCKm_SzXh7zi9KA46s7J3r6ukEpvbDqNS1C9c9UmpIcLUEQaUQBT9VLYGfl-_C4TTYpn8SKEnCeBgD-0xmX_YlXWyEQZ60zicCL53aqwXZTm7JcSg14xHwIUnTepjcjHMOaoEq2PoBGZlcEHNIOAME"
+                                    alt="Mobile Banking App project preview"
+                                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                                    loading="lazy"
+                                >
+                                <div>
+                                    <h3 class="text-primary-text text-base font-medium leading-normal">Mobile Banking App</h3>
+                                    <p class="text-secondary-text text-sm font-normal leading-normal">
+                                        A mobile banking application with features like balance checking, transaction history, and fund transfers.
+                                    </p>
+                                </div>
+                            </article>
+                            
+                            <article class="flex flex-col gap-3 pb-3" role="listitem">
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD85vbPMjhg4F6ZwSn7gmyuh9b4Hny2T1ymo-BrhlJGWLxQGpZ_iUGlg2G3ZJzd0bMtlUMNWYM7Nj1yWhbYujQGU6KwMY7selcFm7ScB9LU3AyGh2nCqLPEeWaxvIHDBwphqeyVR0wuWJ_odyPlWmWYgA7VMrz7WNaZaX-iTKIdlrBOu7z--HUHttSKRiNMkonCjNdsc7dD0l8ciCdPoOvtxYQ6OF1pnJ69lDMy4ptVbR5WJmOCxWNjujxAdUjOMcCplRjezWRL7VM"
+                                    alt="AI-Powered Chatbot project preview"
+                                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                                    loading="lazy"
+                                >
+                                <div>
+                                    <h3 class="text-primary-text text-base font-medium leading-normal">AI-Powered Chatbot</h3>
+                                    <p class="text-secondary-text text-sm font-normal leading-normal">
+                                        An AI-powered chatbot for customer support, capable of handling a wide range of queries and providing personalized responses.
+                                    </p>
+                                </div>
+                            </article>
+                            
+                            <article class="flex flex-col gap-3 pb-3" role="listitem">
+                                <img
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC19D2QAwgQkVSOm9hc55y_Hj27flOrgd2wYfbpu7w6-14g2bXWqeqKJV-xHycdJ76eZEqYXiIfXQc8ntmhat3Lx_xWAtcLA9eybDAnEmWMZG89lldkGgjk2vERobD8iG0UwojI24SI1RBvmdwbhhZgC6XE7PlGXPMbfXqqZ5cCUnIHUbLD3QQiaLCWZ-XIp_2DDtucZp0Z5QOQ-Pyl3r8pUACiMnOx1Ti4NTMef_MQjZYcDv53p_T0GCWlprhx8avagu_LneqKdSg"
+                                    alt="Data Visualization Dashboard project preview"
+                                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                                    loading="lazy"
+                                >
+                                <div>
+                                    <h3 class="text-primary-text text-base font-medium leading-normal">Data Visualization Dashboard</h3>
+                                    <p class="text-secondary-text text-sm font-normal leading-normal">
+                                        A data visualization dashboard for tracking key performance indicators and generating insightful reports.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Contact Section -->
+                <section id="contact" class="section px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 flex flex-1 justify-center py-5" aria-labelledby="contact-heading">
+                    <div class="flex flex-col max-w-[960px] flex-1">
+                        <div class="flex flex-wrap justify-between gap-3 p-4">
+                            <div class="flex min-w-72 flex-col gap-3">
+                                <h2 id="contact-heading" class="text-primary-text tracking-light text-[32px] font-bold leading-tight">Get in Touch</h2>
+                                <p class="text-secondary-text text-sm font-normal leading-normal">
+                                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 px-4" role="list" aria-label="Contact information">
+                            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-14" role="listitem">
+                                <div class="text-primary-text flex items-center justify-center rounded-lg bg-surface shrink-0 w-10 h-10" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" role="img" aria-label="Email icon">
+                                        <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z" />
+                                    </svg>
+                                </div>
+                                <p class="text-primary-text text-base font-normal leading-normal flex-1">
+                                    <a href="mailto:emily.wong@email.com" class="hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]">emily.wong@email.com</a>
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-14" role="listitem">
+                                <div class="text-primary-text flex items-center justify-center rounded-lg bg-surface shrink-0 w-10 h-10" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" role="img" aria-label="LinkedIn icon">
+                                        <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z" />
+                                    </svg>
+                                </div>
+                                <p class="text-primary-text text-base font-normal leading-normal flex-1">
+                                    <a href="https://linkedin.com/in/emily-wong" class="hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" target="_blank" rel="noopener noreferrer">linkedin.com/in/emily-wong</a>
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-slate-50 px-4 min-h-14" role="listitem">
+                                <div class="text-primary-text flex items-center justify-center rounded-lg bg-surface shrink-0 w-10 h-10" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" role="img" aria-label="GitHub icon">
+                                        <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z" />
+                                    </svg>
+                                </div>
+                                <p class="text-primary-text text-base font-normal leading-normal flex-1">
+                                    <a href="https://github.com/emily-wong" class="hover:underline focus:outline-2 focus:outline-offset-2 focus:outline-[#4577a1]" target="_blank" rel="noopener noreferrer">github.com/emily-wong</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        'use strict';
+        
+        // Enhanced navigation functionality with accessibility support
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Handle keyboard navigation
+            function handleKeyNavigation(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.target.click();
+                }
+            }
+            
+            // Update ARIA states
+            function updateAriaStates(activeSection) {
+                navLinks.forEach(link => {
+                    const isActive = link.getAttribute('data-section') === activeSection;
+                    link.setAttribute('aria-pressed', isActive.toString());
+                });
+            }
+            
+            // Show section with fade effect
+            function showSection(targetSectionId) {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    section.setAttribute('aria-hidden', 'true');
+                });
+                
+                // Show target section
+                const targetSection = document.getElementById(targetSectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    targetSection.setAttribute('aria-hidden', 'false');
+                    
+                    // Focus management for screen readers
+                    const heading = targetSection.querySelector('h1, h2, h3');
+                    if (heading) {
+                        heading.focus();
+                    }
+                }
+                
+                // Update ARIA states
+                updateAriaStates(targetSectionId);
+                
+                // Update page title for better UX
+                const sectionTitles = {
+                    'about': 'About - Emily Wong',
+                    'experience': 'Experience - Emily Wong',
+                    'skills': 'Skills - Emily Wong',
+                    'projects': 'Projects - Emily Wong',
+                    'contact': 'Contact - Emily Wong'
+                };
+                
+                document.title = sectionTitles[targetSectionId] || 'Emily Wong - Software Engineer Portfolio';
+            }
+            
+            // Initialize navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetSection = this.getAttribute('data-section');
+                    showSection(targetSection);
+                });
+                
+                link.addEventListener('keydown', handleKeyNavigation);
+            });
+            
+            // Initialize ARIA states
+            updateAriaStates('about');
+            
+            // Set initial aria-hidden states
+            sections.forEach((section, index) => {
+                section.setAttribute('aria-hidden', index !== 0 ? 'true' : 'false');
+            });
+            
+            // Mobile navigation setup
+            setupMobileNavigation();
+            
+            // Load skills data when skills section is first accessed
+            loadSkillsData();
+        });
+        
+        // Mobile navigation functionality
+        function setupMobileNavigation() {
+            const hamburgerBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-nav-menu');
+            const mobileOverlay = document.getElementById('mobile-nav-overlay');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            // Toggle mobile menu
+            function toggleMobileMenu() {
+                const isOpen = mobileMenu.classList.contains('active');
+                
+                if (isOpen) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
+            
+            // Open mobile menu
+            function openMobileMenu() {
+                mobileMenu.setAttribute('data-state', 'open');
+                mobileOverlay.setAttribute('aria-hidden', 'false');
+                hamburgerBtn.classList.add('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                
+                // Focus first menu item
+                setTimeout(() => {
+                    const firstLink = mobileMenu.querySelector('[data-section]');
+                    if (firstLink) firstLink.focus();
+                }, 300);
+            }
+            
+            // Close mobile menu
+            function closeMobileMenu() {
+                mobileMenu.setAttribute('data-state', 'closed');
+                mobileOverlay.setAttribute('aria-hidden', 'true');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                
+                // Return focus to hamburger button
+                hamburgerBtn.focus();
+            }
+            
+            // Event listeners
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', toggleMobileMenu);
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeMobileMenu);
+            }
+            
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMobileMenu);
+            }
+            
+            // Mobile navigation links
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-section');
+                    showSection(targetSection);
+                    closeMobileMenu();
+                });
+            });
+            
+            // Keyboard navigation for mobile menu
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+        }
+        
+        // Skills data management
+        let skillsData = null;
+        let currentFilter = 'all';
+        
+        // Load skills from JSON
+        async function loadSkillsData() {
+            try {
+                const response = await fetch('skills.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                skillsData = await response.json();
+                
+                // Update description
+                const descriptionEl = document.getElementById('skills-description');
+                if (descriptionEl && skillsData.meta) {
+                    descriptionEl.textContent = skillsData.meta.description;
+                }
+                
+                // Render filter buttons
+                renderSkillFilters();
+                
+                // Render skills
+                renderSkills();
+                
+            } catch (error) {
+                console.error('Failed to load skills data:', error);
+                handleSkillsLoadError();
+            }
+        }
+        
+        // Render skill category filter buttons
+        function renderSkillFilters() {
+            if (!skillsData || !skillsData.categories) return;
+            
+            const filtersContainer = document.querySelector('[data-filter="all"]').parentElement;
+            
+            // Clear existing filters except 'All Skills'
+            const allButton = filtersContainer.querySelector('[data-filter="all"]');
+            filtersContainer.innerHTML = '';
+            filtersContainer.appendChild(allButton);
+            
+            // Add category filters
+            skillsData.categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'skill-filter-btn flex h-7 md:h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface px-3 md:px-4 text-xs md:text-sm font-medium focus:outline-2 focus:outline-offset-2 focus:outline-secondary-text hover:bg-opacity-80 transition-colors min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0';
+                button.setAttribute('data-filter', category.id);
+                button.setAttribute('aria-pressed', 'false');
+                button.textContent = category.name;
+                
+                button.addEventListener('click', () => {
+                    setSkillFilter(category.id);
+                });
+                
+                filtersContainer.appendChild(button);
+            });
+        }
+        
+        // Set active skill filter
+        function setSkillFilter(filter) {
+            currentFilter = filter;
+            
+            // Update button states
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                const isActive = btn.getAttribute('data-filter') === filter;
+                btn.setAttribute('aria-pressed', isActive.toString());
+            });
+            
+            // Re-render skills
+            renderSkills();
+        }
+        
+        // Render skills based on current filter
+        function renderSkills() {
+            if (!skillsData || !skillsData.categories) return;
+            
+            const container = document.getElementById('skills-container');
+            let categoriesToShow = skillsData.categories;
+            
+            // Filter categories if needed
+            if (currentFilter !== 'all') {
+                categoriesToShow = skillsData.categories.filter(cat => cat.id === currentFilter);
+            }
+            
+            container.innerHTML = '';
+            
+            categoriesToShow.forEach(category => {
+                const categorySection = createCategorySection(category);
+                container.appendChild(categorySection);
+            });
+        }
+        
+        // Create a category section
+        function createCategorySection(category) {
+            const section = document.createElement('div');
+            section.className = 'mb-8';
+            
+            // Category header
+            const header = document.createElement('h3');
+            header.className = 'text-primary-text text-lg font-bold leading-tight tracking-[-0.015em] pb-4 pt-4';
+            header.textContent = category.name;
+            section.appendChild(header);
+            
+            // Skills grid
+            const skillsGrid = document.createElement('div');
+            skillsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
+            skillsGrid.setAttribute('role', 'list');
+            skillsGrid.setAttribute('aria-label', `${category.name} skills`);
+            
+            category.skills.forEach(skill => {
+                const skillCard = createSkillCard(skill);
+                skillsGrid.appendChild(skillCard);
+            });
+            
+            section.appendChild(skillsGrid);
+            return section;
+        }
+        
+        // Create individual skill card
+        function createSkillCard(skill) {
+            const card = document.createElement('div');
+            card.className = 'skill-card bg-white rounded-lg p-3 md:p-4 border border-border transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md';
+            card.setAttribute('role', 'listitem');
+            
+            // Skill name and level
+            const header = document.createElement('div');
+            header.className = 'flex justify-between items-center mb-2';
+            
+            const name = document.createElement('h4');
+            name.className = 'text-primary-text font-medium text-base';
+            name.textContent = skill.name;
+            
+            const level = document.createElement('span');
+            level.className = 'text-secondary-text text-sm font-medium';
+            level.textContent = skill.level;
+            
+            header.appendChild(name);
+            header.appendChild(level);
+            card.appendChild(header);
+            
+            // Experience years
+            const experience = document.createElement('p');
+            experience.className = 'text-secondary-text text-sm mb-2';
+            experience.textContent = `${skill.years} year${skill.years !== 1 ? 's' : ''} experience`;
+            card.appendChild(experience);
+            
+            // Skill level bar
+            const levelBarContainer = document.createElement('div');
+            levelBarContainer.className = 'h-1 rounded-sm overflow-hidden mb-2 bg-gradient-to-r from-secondary-text/20 to-surface';
+            
+            const levelBar = document.createElement('div');
+            levelBar.className = 'h-full bg-secondary-text transition-[width] duration-[600ms] ease-in-out';
+            
+            // Set level percentage
+            const levelPercent = {
+                'Beginner': 25,
+                'Intermediate': 65,
+                'Advanced': 90
+            }[skill.level] || 50;
+            
+            levelBar.style.width = `${levelPercent}%`;
+            levelBarContainer.appendChild(levelBar);
+            card.appendChild(levelBarContainer);
+            
+            // Description
+            if (skill.description) {
+                const description = document.createElement('p');
+                description.className = 'text-secondary-text text-sm leading-relaxed';
+                description.textContent = skill.description;
+                card.appendChild(description);
+            }
+            
+            return card;
+        }
+        
+        // Handle skills loading error
+        function handleSkillsLoadError() {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="text-red-500 mb-2">
+                        <svg class="w-12 h-12 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-secondary-text font-medium">Failed to load skills data</p>
+                    <p class="text-secondary-text text-sm mt-1">Please check your internet connection and try again.</p>
+                    <button 
+                        onclick="loadSkillsData()" 
+                        class="mt-4 px-4 py-2 bg-[#4577a1] text-white rounded-md hover:bg-[#3a6591] transition-colors"
+                    >
+                        Retry
+                    </button>
+                </div>
+            `;
+            
+            // Update description
+            const descriptionEl = document.getElementById('skills-description');
+            if (descriptionEl) {
+                descriptionEl.textContent = 'Unable to load skills data.';
+            }
+        }
+        
+        // Enhanced error handling
+        window.addEventListener('error', function(event) {
+            console.error('Portfolio error:', event.error);
+        });
+        
+        // Service worker registration for progressive enhancement (if available)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Service worker would be registered here for offline functionality
+                console.log('Portfolio loaded successfully');
+            });
+        }
+        
+        // Initialize skill filters when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up initial filter button click handler
+            const allSkillsBtn = document.querySelector('[data-filter="all"]');
+            if (allSkillsBtn) {
+                allSkillsBtn.addEventListener('click', () => {
+                    setSkillFilter('all');
+                });
+            }
+            
+            // Initialize mobile navigation
+            setupMobileNavigation();
+            
+            // Touch and mobile optimizations
+            setupTouchOptimizations();
+        });
+        
+        // Mobile navigation setup
+        function setupMobileNavigation() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+            const mobileNavMenu = document.getElementById('mobile-nav-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            // Open mobile menu
+            function openMobileMenu() {
+                mobileNavOverlay.classList.add('active');
+                mobileNavMenu.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                mobileNavOverlay.setAttribute('aria-hidden', 'false');
+                
+                // Prevent body scroll
+                document.body.style.overflow = 'hidden';
+                
+                // Focus management
+                mobileMenuClose.focus();
+            }
+            
+            // Close mobile menu
+            function closeMobileMenu() {
+                mobileNavOverlay.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileNavOverlay.setAttribute('aria-hidden', 'true');
+                
+                // Restore body scroll
+                document.body.style.overflow = '';
+                
+                // Return focus to hamburger button
+                mobileMenuBtn.focus();
+            }
+            
+            // Event listeners
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', openMobileMenu);
+            }
+            
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+            }
+            
+            if (mobileNavOverlay) {
+                mobileNavOverlay.addEventListener('click', closeMobileMenu);
+            }
+            
+            // Handle mobile nav link clicks
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // Close mobile menu
+                    closeMobileMenu();
+                    
+                    // Switch to the selected section
+                    setTimeout(() => {
+                        showSection(sectionId);
+                    }, 300);
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileNavMenu.getAttribute('data-state') === 'open') {
+                        closeMobileMenu();
+                    }
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                }
+            });
+        }
+        
+        // Touch and mobile optimizations
+        function setupTouchOptimizations() {
+            // Prevent double-tap zoom on buttons
+            const buttons = document.querySelectorAll('button, .nav-link, .skill-filter-btn');
+            buttons.forEach(button => {
+                button.style.touchAction = 'manipulation';
+            });
+            
+            // Add touch feedback for mobile
+            if ('ontouchstart' in window) {
+                // Skill cards touch feedback
+                document.querySelectorAll('.skill-card').forEach(card => {
+                    card.addEventListener('touchstart', function() {
+                        this.style.transform = 'scale(0.98)';
+                        this.style.transition = 'transform 0.1s ease';
+                    });
+                    
+                    card.addEventListener('touchend', function() {
+                        this.style.transform = '';
+                    });
+                });
+                
+                // Navigation links touch feedback
+                document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                    link.addEventListener('touchstart', function() {
+                        this.style.backgroundColor = 'var(--surface)';
+                        this.style.transition = 'background-color 0.1s ease';
+                    });
+                    
+                    link.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.style.backgroundColor = '';
+                        }, 150);
+                    });
+                });
+                
+                // Filter buttons touch feedback
+                document.querySelectorAll('.skill-filter-btn').forEach(btn => {
+                    btn.addEventListener('touchstart', function() {
+                        if (!this.classList.contains('active')) {
+                            this.style.backgroundColor = 'var(--surface)';
+                            this.style.transition = 'background-color 0.1s ease';
+                        }
+                    });
+                    
+                    btn.addEventListener('touchend', function() {
+                        if (!this.classList.contains('active')) {
+                            setTimeout(() => {
+                                this.style.backgroundColor = '';
+                            }, 150);
+                        }
+                    });
+                });
+            }
+            
+            // Optimize viewport for mobile
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes');
+            }
+            
+            // Prevent iOS zoom on input focus
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            if (isIOS) {
+                const inputs = document.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.style.fontSize = '16px';
+                });
+            }
+            
+            // Handle orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
+            });
+            
+            // Improve scroll performance on mobile
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) {
+                mainContent.style.webkitOverflowScrolling = 'touch';
+            }
+        }
+    </script>
+</body>
+</html>
