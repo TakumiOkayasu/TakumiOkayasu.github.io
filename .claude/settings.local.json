@@ -5,8 +5,14 @@
       "Bash(find:*)",
       "Bash(git ls-tree:*)",
       "Bash(mkdir:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(bun run:*)",
+      "Bash(rm:*)",
+      "Bash(bun install:*)"
     ],
-    "deny": []
+    "deny": [
+      ".env"
+    ]
   }
 }
