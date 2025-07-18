@@ -1,0 +1,31 @@
+{
+  "name": "ProfilePage",
+  "dockerComposeFile": "compose.yaml",
+  "service": "profile",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=${localWorkspaceFolder}/,target=/workspaces/${localWorkspaceFolderBasename},type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "pizzacat83.codic",
+        "sourcegraph.cody-ai",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "ms-azuretools.vscode-containers",
+        "mikestead.dotenv",
+        "mhutchie.git-graph",
+        "Anthropic.claude-code",
+        "oven.bun-vscode",
+        "biomejs.biome"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  }
+}

@@ -1,0 +1,19 @@
+services:
+  profile:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_NAME: ${USER_NAME}
+        USER_UID: ${USER_UID}
+        USER_GID: ${USER_GID}
+    command: sleep infinity
+    networks:
+      - db-common-network
+    env_file:
+      - ./.env
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+networks:
+  db-common-network:
