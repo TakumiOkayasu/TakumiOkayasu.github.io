@@ -62,7 +62,11 @@ const Portfolio: React.FC = () => {
   }, []);
 
   if (loading || !personalInfo || !contactInfo) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div className="text-gray-600 dark:text-gray-400 text-lg">Loading...</div>
+      </div>
+    );
   }
 
   return (
