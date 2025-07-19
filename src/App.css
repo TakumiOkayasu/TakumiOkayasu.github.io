@@ -1,9 +1,29 @@
 @import "tailwindcss";
 
+/* ダークモード対応のベース設定 */
+:root {
+  color-scheme: light dark;
+}
+
+/* ライトモードのデフォルト背景 */
+html {
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* ダークモードの背景 */
+html.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* スムーズなトランジション */
+html {
+  @apply transition-colors duration-300;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
