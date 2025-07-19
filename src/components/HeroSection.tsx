@@ -1,4 +1,5 @@
 import type React from 'react';
+import { useThemeContext } from '../contexts/ThemeContext';
 import type { PersonalInfo } from '../types/types';
 
 interface HeroSectionProps {
@@ -6,6 +7,9 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
+  const { resolvedTheme } = useThemeContext();
+  const isDarkMode = resolvedTheme === 'dark';
+
   return (
     <section className="flex p-4">
       <div className="flex w-full flex-col gap-4 items-center">
@@ -15,13 +19,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
             style={{ backgroundImage: `url('${personalInfo.avatar}')` }}
           />
           <div className="flex flex-col items-center justify-center ">
-            <h2 className="text-gray-900 dark:text-gray-100 text-2xl font-bold leading-tight tracking-tight">
+            <h2
+              className={`text-gray-900 text-2xl font-bold leading-tight tracking-tight brightness-0 ${isDarkMode ? 'invert' : ''} dark:text-gray-100`}
+            >
               {personalInfo.name}
             </h2>
-            <p className="text-blue-600 dark:text-blue-400 text-base font-normal leading-normal">
+            <p className={`text-blue-600 text-base font-normal leading-normal brightness-0 ${isDarkMode ? 'invert' : ''} dark:text-blue-400`}>
               {personalInfo.title}
             </p>
-            <p className="text-gray-600 text-center dark:text-gray-400 text-base font-normal leading-normal max-w-2xl">
+            <p className={`text-gray-600 text-center text-base font-normal leading-normal max-w-2xl brightness-0 ${isDarkMode ? 'invert' : ''} dark:text-gray-400`}>
               {personalInfo.description}
             </p>
           </div>
