@@ -1,4 +1,5 @@
 import React from 'react';
+import { useThemeContext } from '../contexts/ThemeContext';
 import type { Experience } from '../types/types';
 
 interface ExperienceSectionProps {
@@ -6,8 +7,11 @@ interface ExperienceSectionProps {
 }
 
 const ExperienceTimeline: React.FC<{ experiences: Experience[] }> = ({ experiences }) => {
+  const { resolvedTheme } = useThemeContext();
+  const isDarkMode = resolvedTheme === 'dark';
+
   return (
-    <div className="grid grid-cols-[40px_1fr] gap-x-2 px-4">
+    <div className={`grid grid-cols-[40px_1fr] gap-x-2 px-4 brightness-0 ${isDarkMode ? 'invert' : ''}`}>
       {experiences.map((exp, index) => (
         <React.Fragment key={`${exp.company}-${index}`}>
           <div className="flex flex-col items-center gap-1 pt-3">
@@ -34,8 +38,11 @@ const ExperienceTimeline: React.FC<{ experiences: Experience[] }> = ({ experienc
 };
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) => {
+  const { resolvedTheme } = useThemeContext();
+  const isDarkMode = resolvedTheme === 'dark';
+
   return (
-    <section id="experience" className="transition-colors duration-300">
+    <section id="experience" className={`transition-colors duration-300 brightness-0 ${isDarkMode ? 'invert' : ''}`}>
       <div className="flex flex-wrap justify-between gap-3 p-4">
         <div className="flex min-w-72 flex-col gap-3">
           <h2 className="text-gray-900 dark:text-gray-100 text-3xl font-bold leading-tight tracking-tight">
