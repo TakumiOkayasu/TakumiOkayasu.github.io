@@ -10,7 +10,12 @@
       "Bash(bun run:*)",
       "Bash(rm:*)",
       "Bash(bun install:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)",
+      "Bash(mv:*)"
     ],
     "deny": [
       ".env"

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Software Engineer",
+    "position": "Senior Software Engineer",
+    "company": "Tech Innovators Inc.",
+    "period": "Jan 2020 - Present",
+    "description": "Led the development of a scalable e-commerce platform, resulting in a 40% increase in transaction throughput. Mentored junior engineers and introduced agile methodologies to the team. Spearheaded the integration of AI-driven personalization features, enhancing user engagement by 25%.",
+    "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuDsnlPiSJiZ6JpX4phORO7NsN6mvv9vegrUsF9VgU_iTlqGRoQiANuwfDKEx3SmGlRnyKdimn-hOogMMWr9PGQ_JahUYjVmIXh7w9JpvFrwI9Jf3ublZ7dUcS_cuTsJni8PykRZaGAUxrh6g2kYHWmEzsQC3BPdzG5Fdpqgqe1cFafmHdgyjAkVfAacHhwp17j-2g4dV0NFXKDnYg-6lsw5FIGkmO62hIj6UEcn925kkZXXD9v4Ng5K0J2zShXOpQn5xNnHeCIG1fU"
+  },
+  {
+    "id": 2,
+    "title": "Software Engineer",
+    "position": "Software Engineer",
+    "company": "Code Crafters LLC",
+    "period": "Jun 2018 - Dec 2019",
+    "description": "Developed and maintained key features for a popular social media application, focusing on performance optimization and user experience. Collaborated with cross-functional teams to deliver high-quality software solutions. Implemented a new user authentication system, improving security and reducing login failures by 15%.",
+    "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuBo6myXdjHlfEE0sq-LxjGvV-KeN-2xMtT2i9LrWD3gIuZbDcVM-Sp8QBOL7Q9b1-3ZhUmVDMU-2nO5VTSDShhGRPTcYEXfvMgq6F-NlUg9Auti5VYXJlGtU_J6XQWuf18ia4SaRIsVz_wJPEcdy0L8yvmMiNXvTVlAgR-sSTCvnTg75q11q6rHBN6qh3uyo0bQTg43ulfXFG4L3eZeC1teugvLOqF5JGeljFcpINQJcfRbJHH3kNQ7sph4k_USRF1sMXWOPTMkyqI"
+  },
+  {
+    "id": 3,
+    "title": "Junior Developer",
+    "position": "Junior Developer",
+    "company": "Startup Solutions Co.",
+    "period": "Aug 2016 - May 2018",
+    "description": "Contributed to the development of a web-based project management tool, gaining experience in full-stack development. Worked closely with senior developers to learn best practices and improve coding skills. Successfully launched a new feature for task prioritization, which was well-received by users and improved task completion rates by 10%.",
+    "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuB3BsN2mpuz9Dua2S_gmCeKa0tIgXTZfhmvsBo8F5MKm-Qctc6XPtzoBXlsmDmBv-t5kTYzAPOevWyIorv_cMjp6r-MeH1eohlJySNHPjxYYgddgHxsKlAX8Cvzwn0tTYOIEvLFCSex9afxXm0u5AA_qPiwKeSJl8szA0_ddFlXbsAmSa7Xolhp98n-poCLqjDJHFvEDc9AXZhPmOSWaIabJVdFqDDONVWQdIo-zg7hljyEmKRaddZ5semNGw9-PyXJzwPXL6mCT-s"
+  }
+]

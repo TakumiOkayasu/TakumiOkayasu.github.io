@@ -1,0 +1,89 @@
+# EditorConfig is awesome: https://EditorConfig.org
+# This file is also read by Biome for formatting configuration
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# TypeScript and TSX files
+[*.{ts,tsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+quote_type = single
+
+# JSON files
+[*.json]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# JavaScript files (if any)
+[*.{js,jsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+quote_type = single
+
+# CSS and SCSS files
+[*.{css,scss}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# HTML files
+[*.html]
+indent_style = space
+indent_size = 2
+max_line_length = 120
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# YAML files
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Package files
+[package.json]
+indent_style = space
+indent_size = 2
+
+# Config files
+[.{babelrc,eslintrc,prettierrc}]
+indent_style = space
+indent_size = 2
+
+# Git files
+[{.gitignore,.gitattributes}]
+indent_style = space
+indent_size = 2
+
+# Docker files
+[{Dockerfile,docker-compose.yml}]
+indent_style = space
+indent_size = 2
+
+# Environment files
+[.env*]
+indent_style = space
+indent_size = 2
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2

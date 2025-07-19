@@ -1,0 +1,85 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"lineWidth": 100,
+		"lineEnding": "lf"
+	},
+	"javascript": {
+		"formatter": {
+		"enabled": true,
+		"quoteStyle": "single",
+		"jsxQuoteStyle": "double",
+		"quoteProperties": "asNeeded",
+		"trailingCommas": "es5",
+		"semicolons": "always",
+		"arrowParentheses": "asNeeded",
+		"bracketSpacing": true,
+		"bracketSameLine": false
+		},
+		"parser": {
+		"unsafeParameterDecoratorsEnabled": false
+		}
+	},
+	"json": {
+		"formatter": {
+		"enabled": true,
+		"indentWidth": 2,
+		"lineWidth": 80
+		},
+		"parser": {
+		"allowComments": true,
+		"allowTrailingCommas": false
+		}
+	},
+
+	"files": {
+		"includes": [
+			"**/*.js",
+			"**/*.jsx",
+			"**/*.ts",
+			"**/*.tsx",
+			"**/*.json",
+			"**/*.jsonc",
+			"**/*.css"
+		],
+		"experimentalScannerIgnores": [
+			"**/node_modules",
+			"**/.git",
+			"**/dist",
+			"**/build",
+			"**/.next",
+			"**/coverage",
+			"**/package-lock.json",
+			"**/yarn.lock",
+			"**/pnpm-lock.yaml",
+			"**/*.min.js",
+			"**/*.min.css",
+			"**/.env*"
+		],
+			"maxSize": 1048576
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	}
+}

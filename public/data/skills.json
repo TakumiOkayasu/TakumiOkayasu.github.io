@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Programming Languages",
+    "skills": ["Python", "Java", "JavaScript", "C++", "Go"]
+  },
+  {
+    "title": "Frameworks & Libraries",
+    "skills": ["React", "Angular", "Vue.js", "Spring", "Node.js", "Express.js"]
+  },
+  {
+    "title": "Databases",
+    "skills": ["MySQL", "PostgreSQL", "MongoDB", "Redis"]
+  },
+  {
+    "title": "Tools",
+    "skills": ["Git", "Docker", "Kubernetes", "Jenkins", "AWS", "Azure"]
+  },
+  {
+    "title": "Platforms",
+    "skills": ["Linux", "macOS", "Windows", "Android"]
+  }
+]
