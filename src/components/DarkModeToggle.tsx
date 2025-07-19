@@ -20,24 +20,7 @@ const DarkModeToggle: React.FC = () => {
       aria-label={getAriaLabel()}
       title={getAriaLabel()}
     >
-      <SunIcon
-        className={`absolute w-6 h-6 text-yellow-500 transition-all duration-300 ${
-          resolvedTheme === 'dark'
-            ? 'opacity-0 rotate-180 scale-0'
-            : 'opacity-100 rotate-0 scale-100'
-        }`}
-      />
-      <MoonIcon
-        className={`absolute w-6 h-6 text-blue-400 transition-all duration-300 ${
-          resolvedTheme === 'dark'
-            ? 'opacity-100 rotate-0 scale-100'
-            : 'opacity-0 -rotate-180 scale-0'
-        }`}
-      />
-      {/* システムテーマ使用時のインジケーター */}
-      {theme === 'system' && (
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white dark:border-gray-800 transition-colors duration-300" />
-      )}
+      {resolvedTheme === 'dark' ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 };
