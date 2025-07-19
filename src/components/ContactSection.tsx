@@ -1,6 +1,7 @@
 import type React from 'react';
+import { useThemeContext } from '../contexts/ThemeContext';
 import type { ContactInfo } from '../types/types';
-import { EnvelopeIcon } from './Icons';
+import { EmailIcon, GitHubIcon } from './Icons';
 
 interface ContactSectionProps {
   contactInfo: ContactInfo;
@@ -20,8 +21,13 @@ const ContactItem: React.FC<{ icon: React.ReactNode; value: string }> = ({ icon,
 };
 
 const ContactSection: React.FC<ContactSectionProps> = ({ contactInfo }) => {
+  const { resolvedTheme } = useThemeContext();
+  const isDarkMode = resolvedTheme === 'dark';
+
+  // 連絡先コレクション
   const contactItems = [
-    { icon: <EnvelopeIcon />, value: contactInfo.email },
+    { icon: <EmailIcon isDarkMode={isDarkMode} />, value: contactInfo.email },
+    { icon: <GitHubIcon isDarkMode={isDarkMode} />, value: contactInfo.github },
   ];
 
   return (
@@ -34,8 +40,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contactInfo }) => {
                 Get in Touch
               </p>
               <p className="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be
-                part of your visions. Feel free to reach out!
+                連絡先はこちら
               </p>
             </div>
           </div>
