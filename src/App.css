@@ -5,19 +5,14 @@
   color-scheme: light dark;
 }
 
-/* ライトモードのデフォルト背景 */
+/* ライトモードのデフォルト背景 + スムーズなトランジション */
 html {
-  @apply bg-gray-50 text-gray-900;
+  @apply bg-white text-gray-900 transition-colors duration-300;
 }
 
 /* ダークモードの背景 */
 html.dark {
   @apply bg-gray-900 text-gray-100;
-}
-
-/* スムーズなトランジション */
-html {
-  @apply transition-colors duration-300;
 }
 
 #root {

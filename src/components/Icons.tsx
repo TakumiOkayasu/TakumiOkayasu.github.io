@@ -10,7 +10,7 @@ export const SunIcon: React.FC<IconProps> = () => {
     <img
       src="/sun.svg"
       alt="sun icon"
-      className={`size-8 absolute inset-0 m-auto transition-all duration-500 opacity-100 rotate-0 invert`}
+      className="size-8 transition-all duration-500 opacity-100 rotate-0 brightness-0 invert"
     />
   );
 };
@@ -20,7 +20,7 @@ export const MoonIcon: React.FC<IconProps> = () => {
     <img
       src="/moon.svg"
       alt="moon icon"
-      className={`size-8 absolute transition-all duration-500 opacity-100 rotate-0 brightness-0 invert`}
+      className="size-8 transition-all duration-500 opacity-100 rotate-0 brightness-0"
     />
   );
 };

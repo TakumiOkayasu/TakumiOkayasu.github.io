@@ -1,21 +1,16 @@
 import type React from 'react';
 import { createContext, useContext } from 'react';
-import { type Theme, useTheme } from '../hooks/useTheme';
-
-export type { Theme };
+import { useTheme } from '../hooks/useTheme';
 
 interface ThemeContextType {
-  theme: Theme;
-  resolvedTheme: 'light' | 'dark';
-  setTheme: (theme: Theme) => void;
-  toggleTheme: () => void;
+  isDark: boolean;
+  toggle: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const themeValue = useTheme();
-
   return <ThemeContext.Provider value={themeValue}>{children}</ThemeContext.Provider>;
 };
 

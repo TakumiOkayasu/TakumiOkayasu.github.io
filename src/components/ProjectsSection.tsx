@@ -1,5 +1,4 @@
 import type React from 'react';
-import { useThemeContext } from '../contexts/ThemeContext';
 import type { Project } from '../types/types';
 
 interface ProjectsSectionProps {
@@ -7,12 +6,14 @@ interface ProjectsSectionProps {
 }
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const { resolvedTheme } = useThemeContext();
-  const isDarkMode = resolvedTheme === 'dark';
-
   return (
-    <article className={`flex flex-col gap-3 pb-3 group brightness-0 ${isDarkMode ? 'invert' : ''}`}>
-      <div className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-200 brightness-0 ${isDarkMode ? 'invert' : ''} dark:bg-gray-700 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg dark:group-hover:shadow-gray-900/30" />
+    <article className="flex flex-col gap-3 pb-3 group">
+      <div
+        className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-100 dark:bg-gray-700 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg dark:group-hover:shadow-gray-900/30 flex items-center justify-center"
+        style={project.image ? { backgroundImage: `url('${project.image}')` } : {}}
+      >
+        {!project.image && <div className="text-gray-400 dark:text-gray-500 text-4xl">📁</div>}
+      </div>
       <div>
         <h3 className="text-gray-900 dark:text-gray-100 text-base font-medium leading-normal">
           {project.title}
@@ -26,14 +27,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 };
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
-  const { resolvedTheme } = useThemeContext();
-  const isDarkMode = resolvedTheme === 'dark';
-
   return (
-    <section
-      id="projects"
-      className={`transition-colors duration-300 brightness-0 ${isDarkMode ? 'invert' : ''}`}
-    >
+    <section id="projects" className="transition-colors duration-300">
       <h2 className="text-gray-900 dark:text-gray-100 text-2xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5">
         Projects
       </h2>

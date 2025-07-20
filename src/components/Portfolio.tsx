@@ -63,7 +63,7 @@ const Portfolio: React.FC = () => {
 
   if (loading || !personalInfo || !contactInfo) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="text-gray-600 dark:text-gray-400 text-lg">Loading...</div>
       </div>
     );
@@ -73,7 +73,7 @@ const Portfolio: React.FC = () => {
     <>
       <DarkModeToggle />
       <div
-        className="relative flex size-full min-h-screen flex-col bg-gray-50 dark:bg-gray-900 overflow-x-hidden transition-colors duration-300"
+        className="relative flex size-full min-h-screen flex-col bg-white dark:bg-gray-900 overflow-x-hidden transition-colors duration-300"
         style={{ fontFamily: "'Space Grotesk', 'Noto Sans', sans-serif" }}
       >
         <div className="flex h-full grow flex-col">
