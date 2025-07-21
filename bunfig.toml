@@ -1,0 +1,17 @@
+[test]
+# テストのルートディレクトリ
+root = "./"
+
+# テストファイルのパターン
+patterns = ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"]
+
+# カバレッジ設定
+coverage = true
+coverageReporter = ["text", "json", "html"]
+
+# タイムアウト設定
+timeout = 5000
+
+# 環境変数
+[test.env]
+NODE_ENV = "test"
