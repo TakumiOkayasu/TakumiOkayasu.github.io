@@ -1,26 +1,3 @@
-export interface Skill {
-  name: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
-  years: number;
-  description: string;
-}
-
-export interface SkillCategory {
-  id: number;
-  name: string;
-  icon: string;
-  skills: Skill[];
-}
-
-export interface SkillsData {
-  meta: {
-    title: string;
-    description: string;
-    lastUpdated: string;
-  };
-  categories: SkillCategory[];
-}
-
 export interface Experience {
   id: number;
   title: string;
@@ -43,9 +20,7 @@ export interface Project {
 
 export interface ContactInfo {
   email: string;
-  linkedin: string;
   github: string;
-  phone?: string;
 }
 
 export interface PersonalInfo {
@@ -56,7 +31,17 @@ export interface PersonalInfo {
   about: string;
 }
 
-export interface SkillCategorySimple {
-  title: string;
-  skills: string[];
+export interface Skill {
+  name: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  years: number;
+  description: string;
 }
+
+export interface SkillCategory {
+  id: number;
+  name: string;
+  icon_path: string;
+  skills: Skill[];
+}
+
