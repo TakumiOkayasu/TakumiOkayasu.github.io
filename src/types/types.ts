@@ -41,7 +41,7 @@ export interface Skill {
 export interface SkillCategory {
   id: number;
   name: string;
-  icon_path: string;
+  icon_path?: string;
   skills: Skill[];
 }
 
