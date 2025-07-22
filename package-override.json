@@ -1,0 +1,8 @@
+{
+  "overrides": {
+    "rollup": "^4.24.0"
+  },
+  "resolutions": {
+    "rollup": "^4.24.0"
+  }
+}
