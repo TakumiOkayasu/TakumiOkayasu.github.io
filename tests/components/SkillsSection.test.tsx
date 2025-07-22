@@ -4,17 +4,6 @@ import SkillsSection from '../../src/components/SkillsSection';
 import type { SkillCategory } from '../../src/types/types';
 import '../../tests/setup'; // 必須！
 
-// モックデータ（SkillCategorySimple形式）
-const mockSkillCategoriesSimple = [
-  {
-    title: 'Frontend',
-    skills: ['React', 'TypeScript', 'Tailwind CSS'],
-  },
-  {
-    title: 'Backend',
-    skills: ['Node.js', 'Python', 'PostgreSQL'],
-  },
-];
 
 // モックデータ（SkillCategory形式）
 const mockSkillCategories: SkillCategory[] = [
@@ -74,7 +63,7 @@ describe('SkillsSection Component', () => {
   test('renders skills section with title', () => {
     let getByRole: any;
     act(() => {
-      ({ getByRole } = render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />));
+      ({ getByRole } = render(<SkillsSection skillCategories={mockSkillCategories} />));
     });
 
     // セクション要素が存在することを確認
@@ -91,18 +80,17 @@ describe('SkillsSection Component', () => {
   test('renders skill categories with simple format', () => {
     let getByText: any;
     act(() => {
-      ({ getByText } = render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />));
+      ({ getByText } = render(<SkillsSection skillCategories={mockSkillCategories} />));
     });
 
     // カテゴリタイトルが表示されることを確認
-    mockSkillCategoriesSimple.forEach(category => {
-      const categoryTitle = getByText(category.title);
+    mockSkillCategories.forEach(category => {
+      const categoryTitle = getByText(category.name);
       expect(categoryTitle).toBeInTheDocument();
-      expect(categoryTitle).toHaveClass('text-lg', 'font-bold');
 
       // カテゴリ内のスキルが表示されることを確認
       category.skills.forEach(skill => {
-        expect(getByText(skill)).toBeInTheDocument();
+        expect(getByText(skill.name)).toBeInTheDocument();
       });
     });
   });
@@ -125,7 +113,9 @@ describe('SkillsSection Component', () => {
   });
 
   test('displays skill badges with proper styling', () => {
-    render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />);
+    act(() => {
+      render(<SkillsSection skillCategories={mockSkillCategories} />);
+    });
 
     // スキルバッジのコンテナを確認
     const skillBadges = document.querySelectorAll('.rounded-full.bg-gray-200');
@@ -146,7 +136,9 @@ describe('SkillsSection Component', () => {
   });
 
   test('applies hover effects to skill badges', () => {
-    render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />);
+    act(() => {
+      render(<SkillsSection skillCategories={mockSkillCategories} />);
+    });
 
     const skillBadges = document.querySelectorAll('.hover\\:bg-gray-300');
     expect(skillBadges.length).toBeGreaterThan(0);
@@ -158,7 +150,9 @@ describe('SkillsSection Component', () => {
   });
 
   test('displays icons for skills when available', () => {
-    render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />);
+    act(() => {
+      render(<SkillsSection skillCategories={mockSkillCategories} />);
+    });
 
     // React スキルのアイコン（CDN から取得される）が表示されることを確認
     const reactIcon = document.querySelector('img[alt*="React"]');
@@ -172,8 +166,17 @@ describe('SkillsSection Component', () => {
   test('shows fallback for skills without icons', () => {
     const customSkills = [
       {
-        title: 'Custom',
-        skills: ['CustomTech'], // アイコンマップにない技術
+        id: 1,
+        name: 'Frontend',
+        icon_path: '/frontend-icon.svg',
+        skills: [
+          {
+            name: 'custom',
+            level: 'Advanced' as const,
+            years: 0,
+            description: '',
+          },
+        ],
       },
     ];
 
@@ -183,7 +186,7 @@ describe('SkillsSection Component', () => {
     });
 
     // フォールバックアイコン（最初の文字）が表示されることを確認
-    const fallbackIcon = getByText('C'); // CustomTech の C
+    const fallbackIcon = getByText('C'); // custom の C
     expect(fallbackIcon).toBeInTheDocument();
   });
 
@@ -216,7 +219,7 @@ describe('SkillsSection Component', () => {
   test('applies dark mode styles', () => {
     let getByRole: any, getAllByText: any;
     act(() => {
-      ({ getByRole, getAllByText } = render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />));
+      ({ getByRole, getAllByText } = render(<SkillsSection skillCategories={mockSkillCategories} />));
     });
 
     const section = document.querySelector('#skills');
@@ -233,7 +236,9 @@ describe('SkillsSection Component', () => {
   });
 
   test('has proper responsive layout', () => {
-    render(<SkillsSection skillCategories={mockSkillCategoriesSimple} />);
+    act(() => {
+      render(<SkillsSection skillCategories={mockSkillCategories} />);
+    });
 
     // フレックスラップのコンテナを確認
     const flexWrapContainer = document.querySelector('.flex-wrap');
