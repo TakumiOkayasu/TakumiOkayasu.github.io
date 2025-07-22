@@ -44,7 +44,7 @@ test('DOM test', () => {
   }
 });
 
-describe('ExperienceSection Component', () => {
+describe('ExperienceSection コンポーネント', () => {
   test('renders experience section with title', () => {
     let getByText: any;
     

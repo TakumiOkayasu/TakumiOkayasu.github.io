@@ -32,7 +32,7 @@ test('DOM test', () => {
   }
 });
 
-describe('AboutSection Component', () => {
+describe('AboutSection コンポーネント', () => {
   test('renders about section with personal info', () => {
     let getByRole: any;
     let getByText: any;

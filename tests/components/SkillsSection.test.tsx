@@ -59,7 +59,7 @@ test('DOM test', () => {
   }
 });
 
-describe('SkillsSection Component', () => {
+describe('SkillsSection コンポーネント', () => {
   test('renders skills section with title', () => {
     let getByRole: any;
     act(() => {

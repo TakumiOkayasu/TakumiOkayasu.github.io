@@ -23,7 +23,7 @@ const matchMediaMock = mock((query: string) => ({
   dispatchEvent: mock(() => {}),
 }));
 
-describe('useTheme Hook', () => {
+describe('useTheme フック', () => {
   beforeEach(() => {
     // DOMとlocalStorageのモックを設定
     Object.defineProperty(window, 'localStorage', {
@@ -61,7 +61,7 @@ describe('useTheme Hook', () => {
     matchMediaMock.mockClear();
   });
 
-  test('initializes with system preference when no saved value', () => {
+  test('保存された値がないときはシステム設定で初期化する', () => {
     // localStorageに保存値がない場合
     localStorageMock.getItem.mockReturnValue(null);
     // システム設定はライトモード
@@ -85,7 +85,7 @@ describe('useTheme Hook', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
   });
 
-  test('initializes with system preference (dark mode) when no saved value', () => {
+  test('保存された値がないときはシステム設定（ダークモード）で初期化する', () => {
     // localStorageに保存値がない場合
     localStorageMock.getItem.mockReturnValue(null);
     // システム設定はダークモード
@@ -107,7 +107,7 @@ describe('useTheme Hook', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
   });
 
-  test('initializes with saved preference when available', () => {
+  test('保存された設定があるときはそれで初期化する', () => {
     // localStorageに保存された値がある場合
     localStorageMock.getItem.mockReturnValue('true');
 
@@ -119,7 +119,7 @@ describe('useTheme Hook', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
   });
 
-  test('initializes with saved preference (false) when available', () => {
+  test('保存された設定（false）があるときはそれで初期化する', () => {
     // localStorageに保存された値がfalseの場合
     localStorageMock.getItem.mockReturnValue('false');
 
@@ -130,7 +130,7 @@ describe('useTheme Hook', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
   });
 
-  test('toggle function changes theme state', () => {
+  test('toggle関数がテーマ状態を変更する', () => {
     // 初期状態をライトモードに設定
     localStorageMock.getItem.mockReturnValue('false');
 
@@ -150,7 +150,7 @@ describe('useTheme Hook', () => {
     expect(localStorageMock.setItem).toHaveBeenCalledWith('isDark', 'true');
   });
 
-  test('toggle function works from dark to light', () => {
+  test('toggle関数がダークからライトへの切り替えで動作する', () => {
     // 初期状態をダークモードに設定
     localStorageMock.getItem.mockReturnValue('true');
 
@@ -170,7 +170,7 @@ describe('useTheme Hook', () => {
     expect(localStorageMock.setItem).toHaveBeenCalledWith('isDark', 'false');
   });
 
-  test('multiple toggles work correctly', () => {
+  test('複数回のトグルが正しく動作する', () => {
     localStorageMock.getItem.mockReturnValue('false');
 
     const { result } = renderHook(() => useTheme());
@@ -197,7 +197,7 @@ describe('useTheme Hook', () => {
     expect(result.current.isDark).toBe(true);
   });
 
-  test('persists theme changes to localStorage', () => {
+  test('テーマ変更をlocalStorageに永続化する', () => {
     localStorageMock.getItem.mockReturnValue('false');
 
     const { result } = renderHook(() => useTheme());
@@ -218,7 +218,7 @@ describe('useTheme Hook', () => {
     expect(localStorageMock.setItem).toHaveBeenCalledWith('isDark', 'false');
   });
 
-  test('applies dark class to document element correctly', () => {
+  test('document要素にdarkクラスを正しく適用する', () => {
     localStorageMock.getItem.mockReturnValue('false');
 
     const { result } = renderHook(() => useTheme());
@@ -234,7 +234,7 @@ describe('useTheme Hook', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
   });
 
-  test('handles invalid localStorage data by throwing error', () => {
+  test('無効なlocalStorageデータをエラースローで処理する', () => {
     // 不正なJSONデータをモック
     localStorageMock.getItem.mockReturnValue('invalid-json');
 
@@ -244,7 +244,7 @@ describe('useTheme Hook', () => {
     }).toThrow();
   });
 
-  test('returns correct hook interface', () => {
+  test('正しいフックインターフェースを返す', () => {
     // 有効なデータでテスト
     localStorageMock.getItem.mockReturnValue('false');
 

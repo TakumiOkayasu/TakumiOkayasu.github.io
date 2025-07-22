@@ -21,7 +21,7 @@ test('DOM test', () => {
   }
 });
 
-describe('Icons Component', () => {
+describe('Icons コンポーネント', () => {
   describe('GitHubIcon', () => {
     test('renders github icon with default styling in light mode', () => {
       let getByAltText: any;

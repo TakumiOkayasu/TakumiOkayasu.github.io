@@ -79,7 +79,7 @@ const matchMediaMock = mock((query: string) => ({
   dispatchEvent: mock(() => {}),
 }));
 
-describe('App Component', () => {
+describe('App コンポーネント', () => {
   beforeEach(() => {
     // fetchをモック化
     global.fetch = mock((url: string) => {
@@ -131,7 +131,7 @@ describe('App Component', () => {
     }
   });
 
-  test('renders without crashing', () => {
+  test('エラーなしでレンダリングされる', () => {
     let container: any;
     act(() => {
       ({ container } = render(<App />));
@@ -141,13 +141,13 @@ describe('App Component', () => {
     expect(container.textContent).toContain('Loading');
   });
 
-  test('provides ThemeProvider context to Portfolio', async () => {
+  test('PortfolioにThemeProviderコンテキストを提供する', async () => {
     let container: any;
     act(() => {
       ({ container } = render(<App />));
     });
 
-    // データロード後にコンテンツが表示されることを磺認
+    // データロード後にコンテンツが表示されることを確認
     await waitFor(() => {
       expect(container.textContent).toContain(mockPersonalInfo.name);
     }, { timeout: 3000 });
@@ -158,7 +158,7 @@ describe('App Component', () => {
     expect(toggleButton).toHaveClass('fixed', 'bottom-8', 'right-8');
   });
 
-  test('renders Portfolio component', async () => {
+  test('Portfolioコンポーネントをレンダリングする', async () => {
     let container: any;
     act(() => {
       ({ container } = render(<App />));
@@ -176,7 +176,7 @@ describe('App Component', () => {
     expect(container.textContent.includes('Get in Touch') || container.querySelector('#contact')).toBeTruthy();
   });
 
-  test('has correct component hierarchy', async () => {
+  test('正しいコンポーネント階層を持つ', async () => {
     let container: any;
     act(() => {
       ({ container } = render(<App />));
@@ -196,7 +196,7 @@ describe('App Component', () => {
     expect(mainContainer).toBeInTheDocument();
   });
 
-  test('integrates theme functionality correctly', async () => {
+  test('テーマ機能が正しく統合されている', async () => {
     localStorageMock.getItem.mockReturnValue('false'); // 初期状態をライトモードに設定
 
     let container: any;
@@ -212,7 +212,7 @@ describe('App Component', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
   });
 
-  test('handles theme persistence across app lifecycle', async () => {
+  test('アプリライフサイクル全体でテーマの永続化を処理する', async () => {
     // 保存されたテーマ設定をモック
     localStorageMock.getItem.mockReturnValue('true');
 
@@ -230,7 +230,7 @@ describe('App Component', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
   });
 
-  test('renders with CSS imports', () => {
+  test('CSSインポートと共にレンダリングされる', () => {
     // App.cssがインポートされていることを間接的に確認
     // (実際のCSSファイルの存在確認はビルドシステムで行われる)
     let container: any;
@@ -243,7 +243,7 @@ describe('App Component', () => {
     expect(loadingElement).toBeInTheDocument();
   });
 
-  test('provides stable theme context', async () => {
+  test('安定したテーマコンテキストを提供する', async () => {
     let rerender: any, container: any;
     
     act(() => {
@@ -271,7 +271,7 @@ describe('App Component', () => {
     expect(buttonAfterRerender).toBeInTheDocument();
   });
 
-  test('handles component structure correctly', async () => {
+  test('コンポーネント構造を正しく処理する', async () => {
     let container: any;
     act(() => {
       ({ container } = render(<App />));
@@ -291,7 +291,7 @@ describe('App Component', () => {
     expect(mainElement).toBeInTheDocument();
   });
 
-  test('initializes with system theme preference when no stored preference', async () => {
+  test('保存された設定がない場合にシステムテーマ設定で初期化する', async () => {
     localStorageMock.getItem.mockReturnValue(null);
     matchMediaMock.mockReturnValue({
       matches: true, // システムがダークモードを好む設定

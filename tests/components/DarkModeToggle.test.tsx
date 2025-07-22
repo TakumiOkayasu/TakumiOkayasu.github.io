@@ -29,8 +29,8 @@ test('DOM test', () => {
   }
 });
 
-describe('DarkModeToggle Component', () => {
-  test('renders toggle button', () => {
+describe('DarkModeToggle コンポーネント', () => {
+  test('トグルボタンをレンダリングする', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(
@@ -45,7 +45,7 @@ describe('DarkModeToggle Component', () => {
     expect(button).toHaveClass('fixed', 'bottom-8', 'right-8');
   });
 
-  test('has correct styling classes', () => {
+  test('正しいスタイリングクラスを持つ', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(
@@ -71,7 +71,7 @@ describe('DarkModeToggle Component', () => {
     );
   });
 
-  test('displays correct icon based on theme', () => {
+  test('テーマに応じて正しいアイコンを表示する', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(
@@ -89,7 +89,7 @@ describe('DarkModeToggle Component', () => {
     expect(iconSpan?.textContent).toBeTruthy();
   });
 
-  test('has proper accessibility attributes', () => {
+  test('適切なアクセシビリティ属性を持つ', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(
@@ -107,7 +107,7 @@ describe('DarkModeToggle Component', () => {
     expect(ariaLabel).toMatch(/(Switch to|light mode|dark mode)/i);
   });
 
-  test('is clickable and responds to user interaction', async () => {
+  test('クリック可能でユーザー操作に反応する', async () => {
     const user = userEvent.setup();
 
     let getByRole: any;
@@ -130,7 +130,7 @@ describe('DarkModeToggle Component', () => {
     expect(button).toBeInTheDocument();
   });
 
-  test('applies hover effects', () => {
+  test('ホバー効果を適用する', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(
@@ -144,7 +144,7 @@ describe('DarkModeToggle Component', () => {
     expect(button).toHaveClass('hover:scale-110');
   });
 
-  test('has correct z-index for floating behavior', () => {
+  test('フローティング動作のための正しいz-indexを持つ', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(

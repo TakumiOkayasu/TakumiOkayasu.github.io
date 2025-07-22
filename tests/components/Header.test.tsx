@@ -21,7 +21,7 @@ test('DOM test', () => {
   }
 });
 
-describe('Header Component', () => {
+describe('Header コンポーネント', () => {
   test('renders header with correct title', () => {
     let getByRole: any;
     let getByText: any;

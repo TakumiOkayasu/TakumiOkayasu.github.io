@@ -44,7 +44,7 @@ test('DOM test', () => {
   }
 });
 
-describe('ProjectsSection Component', () => {
+describe('ProjectsSection コンポーネント', () => {
   test('renders projects section with title', () => {
     let getByRole: any;
     act(() => {

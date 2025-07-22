@@ -84,7 +84,7 @@ test('DOM test', () => {
   }
 });
 
-describe('Portfolio Component', () => {
+describe('Portfolio コンポーネント', () => {
   beforeEach(() => {
     // fetchをモック化
     global.fetch = mock((url: string) => {

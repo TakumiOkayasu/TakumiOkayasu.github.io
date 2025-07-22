@@ -27,7 +27,7 @@ const ComponentWithoutProvider: React.FC = () => {
 
 describe('ThemeContext', () => {
   describe('ThemeProvider', () => {
-    test('provides theme context to children', () => {
+    test('子要素にテーマコンテキストを提供する', () => {
       let getByTestId: any;
       act(() => {
         ({ getByTestId } = render(
@@ -47,7 +47,7 @@ describe('ThemeContext', () => {
       expect(toggleButton).toBeInTheDocument();
     });
 
-    test('allows theme toggling', async () => {
+    test('テーマの切り替えを許可する', async () => {
       const user = userEvent.setup();
 
       let getByTestId: any;
@@ -78,7 +78,7 @@ describe('ThemeContext', () => {
       expect(themeStatus.textContent).toBe(initialTheme);
     });
 
-    test('maintains theme state across multiple children', () => {
+    test('複数の子要素間でテーマ状態を維持する', () => {
       const ChildA: React.FC = () => {
         const { isDark } = useThemeContext();
         return <div data-testid="child-a">{isDark ? 'dark' : 'light'}</div>;
@@ -106,7 +106,7 @@ describe('ThemeContext', () => {
       expect(childA.textContent).toBe(childB.textContent);
     });
 
-    test('passes theme context value correctly', () => {
+    test('テーマコンテキスト値を正しく渡す', () => {
       const ContextConsumer: React.FC = () => {
         const context = useThemeContext();
 
@@ -138,7 +138,7 @@ describe('ThemeContext', () => {
   });
 
   describe('useThemeContext', () => {
-    test('throws error when used outside ThemeProvider', () => {
+    test('ThemeProviderの外で使用されたときにエラーをスローする', () => {
       // エラーがスローされることをテストするため、エラーハンドリングが必要
       const originalError = console.error;
       console.error = () => {}; // エラーログを抑制
@@ -150,7 +150,7 @@ describe('ThemeContext', () => {
       console.error = originalError; // エラーログを復元
     });
 
-    test('returns context value when used within ThemeProvider', () => {
+    test('ThemeProvider内で使用されたときにコンテキスト値を返す', () => {
       const ContextValueDisplay: React.FC = () => {
         const context = useThemeContext();
 
@@ -179,8 +179,8 @@ describe('ThemeContext', () => {
     });
   });
 
-  describe('Integration with DOM', () => {
-    test('applies dark class to document element when theme changes', async () => {
+  describe('DOMとの統合', () => {
+    test('テーマ変更時にdocument要素にdarkクラスを適用する', async () => {
       const user = userEvent.setup();
 
       let getByTestId: any;
@@ -207,7 +207,7 @@ describe('ThemeContext', () => {
       expect(newTheme).toMatch(/^(dark|light)$/);
     });
 
-    test('respects system preference on initial load', () => {
+    test('初期読み込み時にシステム設定を尊重する', () => {
       let getByTestId: any;
       act(() => {
         ({ getByTestId } = render(
@@ -225,8 +225,8 @@ describe('ThemeContext', () => {
     });
   });
 
-  describe('Persistence', () => {
-    test('theme state persists through multiple renders', async () => {
+  describe('永続化', () => {
+    test('複数のレンダリングを通してテーマ状態が永続する', async () => {
       const user = userEvent.setup();
 
       let rerender: any, getByTestId: any;

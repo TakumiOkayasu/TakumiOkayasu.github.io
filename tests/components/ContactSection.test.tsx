@@ -35,7 +35,7 @@ test('DOM test', () => {
   }
 });
 
-describe('ContactSection Component', () => {
+describe('ContactSection コンポーネント', () => {
   test('renders contact section with title', () => {
     let getByText: any;
     
