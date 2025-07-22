@@ -41,24 +41,6 @@ const mockSkillCategories: SkillCategory[] = [
   },
 ];
 
-test('basic test', () => {
-  expect(1 + 1).toBe(2);
-});
-
-test('DOM test', () => {
-  // DOMが利用可能かチェック
-  console.log('Document available:', typeof document !== 'undefined');
-  console.log('Window available:', typeof window !== 'undefined');
-
-  if (typeof document !== 'undefined') {
-    document.body.innerHTML = '<div id="test">Hello</div>';
-    const element = document.getElementById('test');
-    expect(element?.textContent).toBe('Hello');
-  } else {
-    throw new Error('DOM is not available');
-  }
-});
-
 describe('SkillsSection コンポーネント', () => {
   test('renders skills section with title', () => {
     let getByRole: any;
