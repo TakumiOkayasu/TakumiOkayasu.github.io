@@ -45,3 +45,6 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+export interface SkillsSectionProps {
+  skillCategories: SkillCategory[];
+}

@@ -5,7 +5,7 @@ import type {
   Experience,
   PersonalInfo,
   Project,
-  SkillCategorySimple,
+  SkillCategory,
 } from '../types/types';
 import AboutSection from './AboutSection';
 import ContactSection from './ContactSection';
@@ -18,7 +18,7 @@ import SkillsSection from './SkillsSection';
 
 const Portfolio: React.FC = () => {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo | null>(null);
-  const [skillCategories, setSkillCategories] = useState<SkillCategorySimple[]>([]);
+  const [skillCategories, setSkillCategories] = useState<SkillCategory[]>([]);
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
@@ -47,7 +47,7 @@ const Portfolio: React.FC = () => {
           ]);
 
         setPersonalInfo(personalData as PersonalInfo);
-        setSkillCategories(skillsData as SkillCategorySimple[]);
+        setSkillCategories(skillsData as SkillCategory[]);
         setExperiences(experiencesData as Experience[]);
         setProjects(projectsData as Project[]);
         setContactInfo(contactData as ContactInfo);

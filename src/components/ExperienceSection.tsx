@@ -10,7 +10,7 @@ const ExperienceTimeline: React.FC<{ experiences: Experience[] }> = ({ experienc
     <div className="grid grid-cols-[40px_1fr] gap-x-2 px-4">
       {experiences.map((exp, index) => (
         <React.Fragment key={`${exp.company}-${index}`}>
-          <div className="flex flex-col items-center gap-1 pt-3">
+          <div className="flex flex-col items-center gap-1 pt-1">
             <div
               className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6 ring-2 ring-gray-300 dark:ring-gray-600"
               style={{ backgroundImage: `url('${exp.logo}')` }}
@@ -47,7 +47,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
         </div>
       </div>
       <ExperienceTimeline experiences={experiences} />
-      {experiences.map(exp => (
+      {experiences?.map(exp => (
         <div key={`${exp.company}-detail`}>
           <h3 className="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-tight px-4 pb-2 pt-4">
             {exp.company} | {exp.period}
