@@ -93,15 +93,18 @@ describe('Portfolio コンポーネント', () => {
   });
 
   test('shows loading state initially', () => {
-    let getByText: any;
-    act(() => {
-      const result = render(
-        <TestWrapper>
-          <Portfolio />
-        </TestWrapper>
-      );
-      getByText = result.getByText;
+    // fetchを遅延させるモックを作成
+    global.fetch = mock(() => {
+      return new Promise(() => {
+        // Promiseを解決しないことで、ローディング状態を維持
+      });
     });
+
+    const { getByText } = render(
+      <TestWrapper>
+        <Portfolio />
+      </TestWrapper>
+    );
 
     // ローディング状態が表示されることを確認
     const loadingText = getByText('Loading...');
@@ -111,7 +114,7 @@ describe('Portfolio コンポーネント', () => {
 
   test('renders all sections after data loads', async () => {
     let getByText: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />
@@ -134,7 +137,7 @@ describe('Portfolio コンポーネント', () => {
 
   test('renders DarkModeToggle', async () => {
     let getByText: any, getByRole: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />
@@ -216,7 +219,7 @@ describe('Portfolio コンポーネント', () => {
     console.error = consoleSpy;
 
     let getByText: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />
@@ -264,7 +267,7 @@ describe('Portfolio コンポーネント', () => {
     });
 
     let getByText: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />
@@ -281,7 +284,7 @@ describe('Portfolio コンポーネント', () => {
 
   test('has responsive design classes', async () => {
     let getByText: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />
@@ -304,7 +307,7 @@ describe('Portfolio コンポーネント', () => {
 
   test('applies dark mode transition classes', async () => {
     let getByText: any;
-    act(() => {
+    await act(async () => {
       const result = render(
         <TestWrapper>
           <Portfolio />

@@ -131,9 +131,28 @@ describe('App コンポーネント', () => {
     }
   });
 
-  test('エラーなしでレンダリングされる', () => {
+  test('エラーなしでレンダリングされる', async () => {
+    // fetchを遅延させる
+    global.fetch = mock(() => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          const mockData = {
+            '/data/personal.json': mockPersonalInfo,
+            '/data/skills.json': mockSkillCategories,
+            '/data/experiences.json': mockExperiences,
+            '/data/projects.json': mockProjects,
+            '/data/contact.json': mockContactInfo,
+          };
+          resolve({
+            ok: true,
+            json: () => Promise.resolve(mockData['/data/personal.json']),
+          } as Response);
+        }, 100);
+      });
+    });
+
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -143,7 +162,7 @@ describe('App コンポーネント', () => {
 
   test('PortfolioにThemeProviderコンテキストを提供する', async () => {
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -160,7 +179,7 @@ describe('App コンポーネント', () => {
 
   test('Portfolioコンポーネントをレンダリングする', async () => {
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -178,7 +197,7 @@ describe('App コンポーネント', () => {
 
   test('正しいコンポーネント階層を持つ', async () => {
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -200,7 +219,7 @@ describe('App コンポーネント', () => {
     localStorageMock.getItem.mockReturnValue('false'); // 初期状態をライトモードに設定
 
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -217,7 +236,7 @@ describe('App コンポーネント', () => {
     localStorageMock.getItem.mockReturnValue('true');
 
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -230,11 +249,11 @@ describe('App コンポーネント', () => {
     expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
   });
 
-  test('CSSインポートと共にレンダリングされる', () => {
+  test('CSSインポートと共にレンダリングされる', async () => {
     // App.cssがインポートされていることを間接的に確認
     // (実際のCSSファイルの存在確認はビルドシステムで行われる)
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 
@@ -246,7 +265,7 @@ describe('App コンポーネント', () => {
   test('安定したテーマコンテキストを提供する', async () => {
     let rerender: any, container: any;
     
-    act(() => {
+    await act(async () => {
       ({ rerender, container } = render(<App />));
     });
 
@@ -258,8 +277,8 @@ describe('App コンポーネント', () => {
     const initialButton = container.querySelector('button');
     expect(initialButton).toBeInTheDocument();
 
-    // 再レンダリング後もテーマコンテキストが維持されることを磺認
-    act(() => {
+    // 再レンダリング後もテーマコンテキストが維持されることを確認
+    await act(async () => {
       rerender(<App />);
     });
 
@@ -305,7 +324,7 @@ describe('App コンポーネント', () => {
     });
 
     let container: any;
-    act(() => {
+    await act(async () => {
       ({ container } = render(<App />));
     });
 

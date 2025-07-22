@@ -23,7 +23,8 @@
       "Bash(npx cypress run:*)",
       "Bash(timeout 30s npx cypress run:*)",
       "Bash(pkill:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(cat:*)"
     ],
     "deny": [
       ".env"
