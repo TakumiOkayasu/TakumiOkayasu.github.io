@@ -27,7 +27,7 @@ const mockProjects: Project[] = [
 ];
 
 describe('ProjectsSection コンポーネント', () => {
-  test('renders projects section with title', () => {
+  test('タイトル付きのプロジェクトセクションをレンダリングする', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(<ProjectsSection projects={mockProjects} />));
@@ -44,7 +44,7 @@ describe('ProjectsSection コンポーネント', () => {
     expect(title).toHaveClass('text-2xl', 'font-bold');
   });
 
-  test('renders all project cards', () => {
+  test('すべてのプロジェクトカードをレンダリングする', () => {
     let getByText: any;
     act(() => {
       ({ getByText } = render(<ProjectsSection projects={mockProjects} />));
@@ -57,7 +57,7 @@ describe('ProjectsSection コンポーネント', () => {
     });
   });
 
-  test('displays project image when available', () => {
+  test('利用可能な場合プロジェクト画像を表示する', () => {
     render(<ProjectsSection projects={mockProjects} />);
 
     // 画像URLが設定されているプロジェクトの背景画像を確認
@@ -71,7 +71,7 @@ describe('ProjectsSection コンポーネント', () => {
     }
   });
 
-  test('displays placeholder icon when image is not available', () => {
+  test('画像が利用できない場合プレースホルダーアイコンを表示する', () => {
     let getByText: any;
     act(() => {
       ({ getByText } = render(<ProjectsSection projects={mockProjects} />));
@@ -83,7 +83,7 @@ describe('ProjectsSection コンポーネント', () => {
     expect(placeholderIcon).toHaveClass('text-gray-400', 'dark:text-gray-500');
   });
 
-  test('applies correct grid layout', () => {
+  test('正しいグリッドレイアウトを適用する', () => {
     render(<ProjectsSection projects={mockProjects} />);
 
     // グリッドレイアウトのクラスを確認
@@ -94,7 +94,7 @@ describe('ProjectsSection コンポーネント', () => {
     expect(gridContainer).toHaveClass('gap-3', 'p-4');
   });
 
-  test('applies hover effects to project cards', () => {
+  test('プロジェクトカードにホバー効果を適用する', () => {
     render(<ProjectsSection projects={mockProjects} />);
 
     // グループホバー効果のクラスを確認
@@ -109,7 +109,7 @@ describe('ProjectsSection コンポーネント', () => {
     });
   });
 
-  test('handles empty projects array', () => {
+  test('空のプロジェクト配列を処理する', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(<ProjectsSection projects={[]} />));
@@ -127,7 +127,7 @@ describe('ProjectsSection コンポーネント', () => {
     expect(gridContainer?.children).toHaveLength(0);
   });
 
-  test('applies dark mode styles correctly', () => {
+  test('ダークモードスタイルを正しく適用する', () => {
     act(() => {
       render(<ProjectsSection projects={mockProjects} />);
     });
@@ -144,7 +144,7 @@ describe('ProjectsSection コンポーネント', () => {
     expect(projectCards.length).toBeGreaterThan(0);
   });
 
-  test('project image containers have correct styling', () => {
+  test('プロジェクト画像コンテナが正しいスタイリングを持つ', () => {
     render(<ProjectsSection projects={mockProjects} />);
 
     const imageContainers = document.querySelectorAll('.aspect-square');

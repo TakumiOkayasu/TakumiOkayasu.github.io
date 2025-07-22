@@ -15,7 +15,7 @@ const mockPersonalInfo: PersonalInfo = {
 };
 
 describe('HeroSection コンポーネント', () => {
-  test('renders hero section with personal information', () => {
+  test('個人情報付きのヒーローセクションをレンダリングする', () => {
     let getByText: any;
     
     act(() => {
@@ -39,7 +39,7 @@ describe('HeroSection コンポーネント', () => {
     expect(description).toHaveClass('text-gray-600', 'dark:text-gray-400');
   });
 
-  test('renders avatar with correct background image', () => {
+  test('正しい背景画像でアバターをレンダリングする', () => {
     act(() => {
       render(<HeroSection personalInfo={mockPersonalInfo} />);
     });
@@ -50,7 +50,7 @@ describe('HeroSection コンポーネント', () => {
     expect(avatarDiv?.style.backgroundImage).toContain(mockPersonalInfo.avatar);
   });
 
-  test('has correct layout and styling', () => {
+  test('正しいレイアウトとスタイリングを持つ', () => {
     act(() => {
       render(<HeroSection personalInfo={mockPersonalInfo} />);
     });
@@ -73,7 +73,7 @@ describe('HeroSection コンポーネント', () => {
     );
   });
 
-  test('applies dark mode styles correctly', () => {
+  test('ダークモードスタイルを正しく適用する', () => {
     let getByText: any;
     
     act(() => {
@@ -91,7 +91,7 @@ describe('HeroSection コンポーネント', () => {
     expect(description.className).toContain('dark:text-gray-400');
   });
 
-  test('has responsive design classes', () => {
+  test('レスポンシブデザインクラスを持つ', () => {
     let getByText: any;
     
     act(() => {

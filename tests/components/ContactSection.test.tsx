@@ -18,7 +18,7 @@ const TestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 describe('ContactSection コンポーネント', () => {
-  test('renders contact section with title', () => {
+  test('タイトル付きのコンタクトセクションをレンダリングする', () => {
     let getByText: any;
     
     act(() => {
@@ -45,7 +45,7 @@ describe('ContactSection コンポーネント', () => {
     expect(description).toBeInTheDocument();
   });
 
-  test('renders contact information', () => {
+  test('連絡先情報をレンダリングする', () => {
     let getByText: any;
     
     act(() => {
@@ -66,7 +66,7 @@ describe('ContactSection コンポーネント', () => {
     expect(github).toBeInTheDocument();
   });
 
-  test('renders contact items with proper styling', () => {
+  test('適切なスタイリングで連絡先項目をレンダリングする', () => {
     act(() => {
       render(
         <TestWrapper>
@@ -93,7 +93,7 @@ describe('ContactSection コンポーネント', () => {
     });
   });
 
-  test('displays icons for contact items', () => {
+  test('連絡先項目のアイコンを表示する', () => {
     act(() => {
       render(
         <TestWrapper>
@@ -111,7 +111,7 @@ describe('ContactSection コンポーネント', () => {
     });
   });
 
-  test('applies full screen height', () => {
+  test('フルスクリーンの高さを適用する', () => {
     act(() => {
       render(
         <TestWrapper>
@@ -124,7 +124,7 @@ describe('ContactSection コンポーネント', () => {
     expect(section).toHaveClass('min-h-screen');
   });
 
-  test('has responsive layout', () => {
+  test('レスポンシブレイアウトを持つ', () => {
     act(() => {
       render(
         <TestWrapper>
@@ -139,7 +139,7 @@ describe('ContactSection コンポーネント', () => {
     expect(container).toHaveClass('flex', 'flex-col', 'max-w-4xl', 'flex-1');
   });
 
-  test('applies dark mode styles', () => {
+  test('ダークモードスタイルを適用する', () => {
     let getByText: any;
     
     act(() => {
@@ -165,7 +165,7 @@ describe('ContactSection コンポーネント', () => {
     expect(email.className).toContain('dark:text-gray-100');
   });
 
-  test('handles text truncation for long contact info', () => {
+  test('長い連絡先情報のテキスト省略を処理する', () => {
     let getAllByText: any;
     
     act(() => {

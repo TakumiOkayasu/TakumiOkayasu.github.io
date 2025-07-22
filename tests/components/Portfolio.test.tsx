@@ -69,6 +69,7 @@ const mockContactInfo: ContactInfo = {
 describe('Portfolio コンポーネント', () => {
   beforeEach(() => {
     // fetchをモック化
+    // @ts-ignore - テストファイルなので型エラーは無視して問題ない
     global.fetch = mock((url: string) => {
       const mockData = {
         '/data/personal.json': mockPersonalInfo,
@@ -92,8 +93,9 @@ describe('Portfolio コンポーネント', () => {
     }
   });
 
-  test('shows loading state initially', () => {
+  test('初期状態でローディング状態を表示する', () => {
     // fetchを遅延させるモックを作成
+    // @ts-ignore - テストファイルなので型エラーは無視して問題ない
     global.fetch = mock(() => {
       return new Promise(() => {
         // Promiseを解決しないことで、ローディング状態を維持
@@ -112,7 +114,7 @@ describe('Portfolio コンポーネント', () => {
     expect(loadingText).toHaveClass('text-gray-600', 'dark:text-gray-400');
   });
 
-  test('renders all sections after data loads', async () => {
+  test('データ読み込み後にすべてのセクションをレンダリングする', async () => {
     let getByText: any;
     await act(async () => {
       const result = render(
@@ -135,7 +137,7 @@ describe('Portfolio コンポーネント', () => {
     expect(getByText('Get in Touch')).toBeInTheDocument();
   });
 
-  test('renders DarkModeToggle', async () => {
+  test('ダークモードトグルをレンダリングする', async () => {
     let getByText: any, getByRole: any;
     await act(async () => {
       const result = render(
@@ -157,7 +159,7 @@ describe('Portfolio コンポーネント', () => {
     expect(toggleButton).toHaveClass('fixed', 'bottom-8', 'right-8');
   });
 
-  test('applies correct layout and styling', async () => {
+  test('正しいレイアウトとスタイリングを適用する', async () => {
     let getByText: any;
     act(() => {
       const result = render(
@@ -189,7 +191,7 @@ describe('Portfolio コンポーネント', () => {
     expect(mainElement).toHaveClass('px-4', 'md:px-10', 'lg:px-40');
   });
 
-  test('applies custom font family', async () => {
+  test('カスタムフォントファミリを適用する', async () => {
     let getByText: any;
     act(() => {
       const result = render(
@@ -209,8 +211,9 @@ describe('Portfolio コンポーネント', () => {
     expect(mainContainer?.style.fontFamily).toBe('"Space Grotesk", "Noto Sans", sans-serif');
   });
 
-  test('handles API errors gracefully', async () => {
+  test('APIエラーを適切に処理する', async () => {
     // fetchエラーをモック
+    // @ts-ignore - テストファイルなので型エラーは無視して問題ない
     global.fetch = mock(() => Promise.reject(new Error('API Error')));
 
     // consoleエラーをモック（エラーログの出力を抑制）
@@ -243,8 +246,9 @@ describe('Portfolio コンポーネント', () => {
     console.error = originalConsoleError;
   });
 
-  test('remains in loading state when required data is missing', async () => {
+  test('必須データが欠けている場合ローディング状態を維持する', async () => {
     // 必須データが欠けている状態をモック
+    // @ts-ignore - テストファイルなので型エラーは無視して問題ない
     global.fetch = mock((url: string) => {
       if (url === '/data/personal.json') {
         return Promise.resolve({
@@ -282,7 +286,7 @@ describe('Portfolio コンポーネント', () => {
     }, { timeout: 5000 });
   });
 
-  test('has responsive design classes', async () => {
+  test('レスポンシブデザインクラスを持つ', async () => {
     let getByText: any;
     await act(async () => {
       const result = render(
@@ -305,7 +309,7 @@ describe('Portfolio コンポーネント', () => {
     expect(contentContainer).toHaveClass('flex', 'flex-col', 'max-w-4xl', 'flex-1');
   });
 
-  test('applies dark mode transition classes', async () => {
+  test('ダークモードトランジションクラスを適用する', async () => {
     let getByText: any;
     await act(async () => {
       const result = render(

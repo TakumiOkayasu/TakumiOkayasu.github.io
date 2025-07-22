@@ -27,7 +27,7 @@ const mockExperiences: Experience[] = [
 ];
 
 describe('ExperienceSection コンポーネント', () => {
-  test('renders experience section with title', () => {
+  test('タイトル付きの経験セクションをレンダリングする', () => {
     let getByText: any;
     
     act(() => {
@@ -50,7 +50,7 @@ describe('ExperienceSection コンポーネント', () => {
     expect(description).toBeInTheDocument();
   });
 
-  test('renders all experience items', () => {
+  test('すべての経験項目をレンダリングする', () => {
     let getAllByText: any;
     let getByText: any;
     
@@ -71,7 +71,7 @@ describe('ExperienceSection コンポーネント', () => {
     });
   });
 
-  test('renders experience timeline correctly', () => {
+  test('経験タイムラインを正しくレンダリングする', () => {
     act(() => {
       render(<ExperienceSection experiences={mockExperiences} />);
     });
@@ -88,7 +88,7 @@ describe('ExperienceSection コンポーネント', () => {
     });
   });
 
-  test('applies correct styling for experience items', () => {
+  test('経験項目に正しいスタイリングを適用する', () => {
     let getAllByText: any;
     
     act(() => {
@@ -103,7 +103,7 @@ describe('ExperienceSection コンポーネント', () => {
     expect(companyPeriodElements[0]).toHaveClass('text-gray-600', 'dark:text-gray-400');
   });
 
-  test('handles empty experiences array', () => {
+  test('空の経験配列を処理する', () => {
     let getByText: any;
     
     act(() => {
@@ -121,7 +121,7 @@ describe('ExperienceSection コンポーネント', () => {
     expect(timelineGrid?.children).toHaveLength(0);
   });
 
-  test('applies dark mode styles', () => {
+  test('ダークモードスタイルを適用する', () => {
     let getByText: any;
     
     act(() => {
@@ -139,7 +139,7 @@ describe('ExperienceSection コンポーネント', () => {
     expect(description.className).toContain('dark:text-gray-400');
   });
 
-  test('renders timeline connectors correctly', () => {
+  test('タイムライン接続線を正しくレンダリングする', () => {
     act(() => {
       render(<ExperienceSection experiences={mockExperiences} />);
     });

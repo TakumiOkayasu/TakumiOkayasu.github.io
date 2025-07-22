@@ -5,7 +5,7 @@ import '../setup'; // 必須！
 
 describe('Icons コンポーネント', () => {
   describe('GitHubIcon', () => {
-    test('renders github icon with default styling in light mode', () => {
+    test('ライトモードでデフォルトスタイリングのGitHubアイコンをレンダリングする', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<GitHubIcon isDarkMode={false} />));
@@ -16,7 +16,7 @@ describe('Icons コンポーネント', () => {
       expect(githubIcon).toHaveAttribute('src', '/github-icon.svg');
     });
 
-    test('applies dark mode styling when isDarkMode is true', () => {
+    test('isDarkModeがtrueのときダークモードスタイリングを適用する', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<GitHubIcon isDarkMode={true} />));
@@ -26,7 +26,7 @@ describe('Icons コンポーネント', () => {
       expect(githubIcon).toHaveClass('brightness-0', 'invert');
     });
 
-    test('does not apply invert in light mode', () => {
+    test('ライトモードでinvertを適用しない', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<GitHubIcon isDarkMode={false} />));
@@ -37,7 +37,7 @@ describe('Icons コンポーネント', () => {
       expect(githubIcon).not.toHaveClass('invert');
     });
 
-    test('accepts custom className', () => {
+    test('カスタムclassNameを受け付ける', () => {
       const customClass = 'w-6 h-6';
       let getByAltText: any;
       act(() => {
@@ -48,7 +48,7 @@ describe('Icons コンポーネント', () => {
       expect(githubIcon).toHaveClass('w-6', 'h-6');
     });
 
-    test('handles undefined className gracefully', () => {
+    test('undefinedのclassNameを適切に処理する', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<GitHubIcon isDarkMode={false} />));
@@ -59,7 +59,7 @@ describe('Icons コンポーネント', () => {
       // className が undefined でもエラーにならないことを確認
     });
 
-    test('has transition effect', () => {
+    test('トランジション効果を持つ', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<GitHubIcon isDarkMode={false} />));
@@ -71,7 +71,7 @@ describe('Icons コンポーネント', () => {
   });
 
   describe('EmailIcon', () => {
-    test('renders email icon with default styling in light mode', () => {
+    test('ライトモードでデフォルトスタイリングのメールアイコンをレンダリングする', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<EmailIcon isDarkMode={false} />));
@@ -82,7 +82,7 @@ describe('Icons コンポーネント', () => {
       expect(emailIcon).toHaveAttribute('src', '/email-icon.svg');
     });
 
-    test('applies dark mode styling when isDarkMode is true', () => {
+    test('isDarkModeがtrueのときダークモードスタイリングを適用する', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<EmailIcon isDarkMode={true} />));
@@ -92,7 +92,7 @@ describe('Icons コンポーネント', () => {
       expect(emailIcon).toHaveClass('brightness-0', 'invert');
     });
 
-    test('does not apply invert in light mode', () => {
+    test('ライトモードでinvertを適用しない', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<EmailIcon isDarkMode={false} />));
@@ -103,7 +103,7 @@ describe('Icons コンポーネント', () => {
       expect(emailIcon).not.toHaveClass('invert');
     });
 
-    test('accepts custom className', () => {
+    test('カスタムclassNameを受け付ける', () => {
       const customClass = 'w-4 h-4';
       let getByAltText: any;
       act(() => {
@@ -114,7 +114,7 @@ describe('Icons コンポーネント', () => {
       expect(emailIcon).toHaveClass('w-4', 'h-4');
     });
 
-    test('has transition effect', () => {
+    test('トランジション効果を持つ', () => {
       let getByAltText: any;
       act(() => {
         ({ getByAltText } = render(<EmailIcon isDarkMode={false} />));
@@ -126,7 +126,7 @@ describe('Icons コンポーネント', () => {
   });
 
   describe('Icon Props Interface', () => {
-    test('all icons accept optional className prop', () => {
+    test('すべてのアイコンがオプションのclassNameプロップを受け付ける', () => {
       const customClass = 'custom-icon-class';
 
       // GitHubIcon と EmailIcon のみ className を受け取る
@@ -147,7 +147,7 @@ describe('Icons コンポーネント', () => {
       expect(emailIcon).toHaveClass(customClass);
     });
 
-    test('icons with isDarkMode prop respond to theme changes', () => {
+    test('isDarkModeプロップを持つアイコンがテーマ変更に反応する', () => {
       let rerender: any, getByAltText: any;
       act(() => {
         ({ rerender, getByAltText } = render(<GitHubIcon isDarkMode={false} />));

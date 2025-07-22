@@ -4,7 +4,7 @@ import Header from '../../src/components/Header';
 import '../../tests/setup'; // 必須！
 
 describe('Header コンポーネント', () => {
-  test('renders header with correct title', () => {
+  test('正しいタイトルでヘッダーをレンダリングする', () => {
     let getByRole: any;
     let getByText: any;
     
@@ -24,7 +24,7 @@ describe('Header コンポーネント', () => {
     expect(title).toHaveClass('text-lg', 'font-bold');
   });
 
-  test('has correct styling classes', () => {
+  test('正しいスタイリングクラスを持つ', () => {
     let getByRole: any;
     
     act(() => {
@@ -44,7 +44,7 @@ describe('Header コンポーネント', () => {
     );
   });
 
-  test('applies dark mode classes correctly', () => {
+  test('ダークモードクラスを正しく適用する', () => {
     let getByRole: any;
     
     act(() => {

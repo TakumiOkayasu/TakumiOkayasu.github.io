@@ -15,7 +15,7 @@ const mockPersonalInfo: PersonalInfo = {
 };
 
 describe('AboutSection コンポーネント', () => {
-  test('renders about section with personal info', () => {
+  test('個人情報付きのアバウトセクションをレンダリングする', () => {
     let getByRole: any;
     let getByText: any;
     
@@ -40,7 +40,7 @@ describe('AboutSection コンポーネント', () => {
     expect(aboutText).toBeInTheDocument();
   });
 
-  test('has correct styling classes', () => {
+  test('正しいスタイリングクラスを持つ', () => {
     let getByRole: any;
     let getByText: any;
     
@@ -60,7 +60,7 @@ describe('AboutSection コンポーネント', () => {
     expect(aboutText).toHaveClass('text-gray-700', 'dark:text-gray-300');
   });
 
-  test('applies responsive padding classes', () => {
+  test('レスポンシブなパディングクラスを適用する', () => {
     let getByRole: any;
     let getByText: any;
     

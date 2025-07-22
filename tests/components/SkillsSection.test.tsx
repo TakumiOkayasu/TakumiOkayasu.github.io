@@ -42,7 +42,7 @@ const mockSkillCategories: SkillCategory[] = [
 ];
 
 describe('SkillsSection コンポーネント', () => {
-  test('renders skills section with title', () => {
+  test('タイトル付きのスキルセクションをレンダリングする', () => {
     let getByRole: any;
     act(() => {
       ({ getByRole } = render(<SkillsSection skillCategories={mockSkillCategories} />));
@@ -59,7 +59,7 @@ describe('SkillsSection コンポーネント', () => {
     expect(title).toHaveClass('text-3xl', 'font-bold');
   });
 
-  test('renders skill categories with simple format', () => {
+  test('シンプル形式でスキルカテゴリをレンダリングする', () => {
     let getByText: any;
     act(() => {
       ({ getByText } = render(<SkillsSection skillCategories={mockSkillCategories} />));
@@ -77,7 +77,7 @@ describe('SkillsSection コンポーネント', () => {
     });
   });
 
-  test('renders skill categories with full format', () => {
+  test('フル形式でスキルカテゴリをレンダリングする', () => {
     let getByText: any;
     act(() => {
       ({ getByText } = render(<SkillsSection skillCategories={mockSkillCategories} />));
@@ -94,7 +94,7 @@ describe('SkillsSection コンポーネント', () => {
     });
   });
 
-  test('displays skill badges with proper styling', () => {
+  test('適切なスタイリングでスキルバッジを表示する', () => {
     act(() => {
       render(<SkillsSection skillCategories={mockSkillCategories} />);
     });
@@ -117,7 +117,7 @@ describe('SkillsSection コンポーネント', () => {
     });
   });
 
-  test('applies hover effects to skill badges', () => {
+  test('スキルバッジにホバー効果を適用する', () => {
     act(() => {
       render(<SkillsSection skillCategories={mockSkillCategories} />);
     });
@@ -131,7 +131,7 @@ describe('SkillsSection コンポーネント', () => {
     });
   });
 
-  test('displays icons for skills when available', () => {
+  test('利用可能な場合スキルのアイコンを表示する', () => {
     act(() => {
       render(<SkillsSection skillCategories={mockSkillCategories} />);
     });
@@ -145,7 +145,7 @@ describe('SkillsSection コンポーネント', () => {
     expect(typescriptIcon).toBeInTheDocument();
   });
 
-  test('shows fallback for skills without icons', () => {
+  test('アイコンがないスキルのフォールバックを表示する', () => {
     const customSkills = [
       {
         id: 1,
@@ -172,7 +172,7 @@ describe('SkillsSection コンポーネント', () => {
     expect(fallbackIcon).toBeInTheDocument();
   });
 
-  test('handles empty skills array', () => {
+  test('空のスキル配列を処理する', () => {
     let getByText: any, getByRole: any;
     act(() => {
       ({ getByText, getByRole } = render(<SkillsSection skillCategories={[]} />));
@@ -187,7 +187,7 @@ describe('SkillsSection コンポーネント', () => {
     expect(title).toBeInTheDocument();
   });
 
-  test('handles null or undefined skillCategories', () => {
+  test('nullまたはundefinedのskillCategoriesを処理する', () => {
     let getByText: any;
     act(() => {
       // @ts-ignore - テスト目的で意図的にnullを渡す
@@ -198,7 +198,7 @@ describe('SkillsSection コンポーネント', () => {
     expect(noDataMessage).toBeInTheDocument();
   });
 
-  test('applies dark mode styles', () => {
+  test('ダークモードスタイルを適用する', () => {
     let getByRole: any, getAllByText: any;
     act(() => {
       ({ getByRole, getAllByText } = render(<SkillsSection skillCategories={mockSkillCategories} />));
@@ -217,7 +217,7 @@ describe('SkillsSection コンポーネント', () => {
     });
   });
 
-  test('has proper responsive layout', () => {
+  test('適切なレスポンシブレイアウトを持つ', () => {
     act(() => {
       render(<SkillsSection skillCategories={mockSkillCategories} />);
     });
