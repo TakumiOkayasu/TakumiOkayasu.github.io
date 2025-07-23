@@ -69,9 +69,7 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ skillName }) => {
           {skillName.charAt(0).toUpperCase()}
         </span>
       )}
-      <p className="text-gray-900 dark:text-gray-100 text-sm font-medium leading-normal">
-        {skillName}
-      </p>
+      <p className="text-gray-600 dark:text-gray-200 text-sm font-medium leading-normal">{skillName}</p>
     </div>
   );
 };

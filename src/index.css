@@ -10,15 +10,12 @@
   color-scheme: dark;
 }
 
-/* ダークモード時の背景色とテキスト色を強制適用 - 目に優しい色 */
+/* ダークモード時の背景色とテキスト色を強制適用 - より明るい文字 */
 .dark .bg-white { background-color: #1a202c !important; } /* 濃紺系の暗色 */
 .dark .dark\\:bg-gray-900 { background-color: #2d3748 !important; } /* 少し明るいグレー */
-.dark .text-gray-900 { color: #f7fafc !important; } /* 柔らかい白 */
-.dark .dark\\:text-gray-100 { color: #f7fafc !important; } /* 柔らかい白 */
 
 /* ライトモード時の背景色を目に優しい色に調整 */
 .bg-white { background-color: #fefefe !important; } /* 温かみのある白 */
-.text-gray-900 { color: #1a202c !important; } /* より暗い色で読みやすく */
 
 /* ダークモード対応のベース設定 - 目の疲労軽減 */
 :root {
@@ -42,7 +39,7 @@ html {
 /* ダークモードの背景 */
 html.dark {
   background-color: #1a202c; /* 純黒でなく濃紺系の暗色 */
-  color: #f7fafc; /* 純白でなく少し柔らかい白 */
+  color: #ffffff; /* より明るい白に変更 */
 }
 
 /* body要素も確実に背景色を継承 + 目の疲労軽減 */
@@ -65,7 +62,11 @@ body {
   min-height: 100vh;
   /* 背景色はApp.cssのhtmlで設定するため、ここでは除外 */
   color: #1a202c; /* ライトモード時により暗い文字色 */
-  @apply dark:text-gray-100 transition-colors duration-300;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dark body {
+  color: #ffffff !important; /* ダークモード時は明るい白 */
 }
 
 h1 {
@@ -74,21 +75,67 @@ h1 {
   color: #0f131a; /* 見出しはさらに濃い色 */
 }
 
-/* ライトモード時のグレーテキストも調整 */
-.text-gray-600 { color: #374151 !important; } /* より暗いグレー */
-.text-gray-700 { color: #1f2937 !important; } /* さらに暗いグレー */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #ffffff !important; /* ダークモード時の見出しは明るい白 */
+}
 
-/* Skillsセクション内の文字色もライトモード時に暗く */
-.text-gray-100:not(.dark .text-gray-100) { 
-  color: #1a202c !important; /* スキルアイコンの頭文字も暗く */
+/* === 文字色の統一設定 === */
+
+/* ライトモード時: 全ての文字を暗く */
+.text-gray-100 { color: #1a202c !important; }
+.text-gray-200 { color: #1a202c !important; }
+.text-gray-300 { color: #1f2937 !important; }
+.text-gray-400 { color: #374151 !important; }
+.text-gray-500 { color: #4b5563 !important; }
+.text-gray-600 { color: #374151 !important; }
+.text-gray-700 { color: #1f2937 !important; }
+.text-gray-800 { color: #1a202c !important; }
+.text-gray-900 { color: #1a202c !important; }
+
+/* ダークモード時: 全ての文字を明るく */
+.dark .text-gray-100 { color: #ffffff !important; }
+.dark .text-gray-200 { color: #fafafa !important; }
+.dark .text-gray-300 { color: #f3f4f6 !important; }
+.dark .text-gray-400 { color: #e5e7eb !important; }
+.dark .text-gray-500 { color: #d1d5db !important; }
+.dark .text-gray-600 { color: #e5e7eb !important; }
+.dark .text-gray-700 { color: #f3f4f6 !important; }
+.dark .text-gray-800 { color: #fafafa !important; }
+.dark .text-gray-900 { color: #ffffff !important; }
+
+/* その他の文字色クラスも統一 */
+.text-white { color: #fefefe !important; }
+.dark .text-white { color: #ffffff !important; }
+.text-black { color: #1a202c !important; }
+.dark .text-black { color: #fafafa !important; }
+
+
+/* === Skillsセクション専用の文字色（明るい色固定） === */
+#skills .text-gray-600,
+#skills .text-gray-200,
+#skills .text-gray-900,
+#skills .text-gray-100,
+#skills p,
+#skills h2,
+#skills h3 {
+  color: #ffffff !important; /* 明るい白で固定 */
+}
+
+/* Skillsセクションのバッジ背景（明るい文字とのコントラスト確保） */
+#skills .bg-gray-200 {
+  background-color: #374151 !important; /* ライトモード時も濃い背景 */
+}
+#skills .bg-gray-800 {
+  background-color: #1f2937 !important; /* ダークモード時も濃い背景 */
 }
 
 /* Skillsセクションのバッジ内のスキルアイコンプレースホルダー */
-.bg-gray-800:not(.dark .bg-gray-800) {
-  background-color: #e5e7eb !important; /* ライトモード時は明るいグレー背景 */
+#skills .bg-gray-800 {
+  background-color: #4b5563 !important; /* アイコンプレースホルダーは中間色 */
 }
-.bg-gray-800:not(.dark .bg-gray-800) .text-gray-100 {
-  color: #1a202c !important; /* ライトモード時の頭文字は暗く */
+#skills .text-gray-100,
+#skills .text-gray-800 {
+  color: #ffffff !important; /* Skills内は常に明るい白 */
 }
 
 button {

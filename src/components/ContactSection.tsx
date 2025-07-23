@@ -31,7 +31,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contactInfo }) => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen transition-colors duration-300">
+    <section id="contact" className="min-h-screen shrink-0 transition-colors duration-300">
       <div className="flex flex-1 justify-center py-5">
         <div className="flex flex-col max-w-4xl flex-1">
           <div className="flex-wrap justify-between gap-3 p-4">

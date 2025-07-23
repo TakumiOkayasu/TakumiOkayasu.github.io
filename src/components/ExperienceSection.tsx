@@ -52,7 +52,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
           <h3 className="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-tight px-4 pb-2 pt-4">
             {exp.company} | {exp.period}
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal pb-3 pt-1 px-4">
+          <p className="text-gray-700 dark:text-gray-100 text-base font-normal leading-normal pb-3 pt-1 px-4">
             {exp.description}
           </p>
         </div>

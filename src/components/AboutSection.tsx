@@ -11,7 +11,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ personalInfo }) => {
       <h2 className="text-gray-900 dark:text-gray-100 text-2xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5">
         About
       </h2>
-      <p className="text-gray-700 dark:text-gray-300 text-base font-normal leading-relaxed pb-3 pt-1 px-4">
+      <p className="text-gray-700 dark:text-gray-400 text-base font-normal leading-relaxed pb-3 pt-1 px-4">
         {personalInfo.about}
       </p>
     </section>

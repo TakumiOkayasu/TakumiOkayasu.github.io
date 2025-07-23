@@ -57,7 +57,7 @@ describe('AboutSection コンポーネント', () => {
     expect(title).toHaveClass('text-gray-900', 'dark:text-gray-100');
 
     const aboutText = getByText(mockPersonalInfo.about);
-    expect(aboutText).toHaveClass('text-gray-700', 'dark:text-gray-300');
+    expect(aboutText).toHaveClass('text-gray-700', 'dark:text-gray-400');
   });
 
   test('レスポンシブなパディングクラスを適用する', () => {
