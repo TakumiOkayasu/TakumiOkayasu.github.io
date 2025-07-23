@@ -29,7 +29,8 @@
       "Bash(npm run test:*)",
       "Bash(bun:*)",
       "Bash(npm run dev:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(npm:*)"
     ],
     "deny": [
       ".env"
