@@ -9,8 +9,8 @@ interface ContactSectionProps {
 
 const ContactItem: React.FC<{ icon: React.ReactNode; value: string }> = ({ icon, value }) => {
   return (
-    <div className="flex items-center gap-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 px-4 min-h-14 transition-all duration-200 rounded-lg">
-      <div className="text-gray-700 dark:text-gray-300 flex items-center justify-center rounded-lg bg-gray-300 dark:bg-gray-700 shrink-0 size-10 transition-colors duration-300">
+    <div className="flex items-center gap-4 px-4 min-h-14 duration-200 rounded-lg">
+      <div className="flex items-center justify-center rounded-lg shrink-0 size-10 transition-colors duration-300">
         {icon}
       </div>
       <p className="text-gray-900 dark:text-gray-100 text-base font-normal leading-normal flex-1 truncate">
@@ -39,7 +39,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ contactInfo }) => {
               <p className="text-gray-900 dark:text-gray-100 text-3xl font-bold leading-tight tracking-tight">
                 Get in Touch
               </p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+              <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">
                 連絡先はこちら
               </p>
             </div>
