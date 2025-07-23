@@ -11,7 +11,6 @@ import AboutSection from './AboutSection';
 import ContactSection from './ContactSection';
 import DarkModeToggle from './DarkModeToggle';
 import ExperienceSection from './ExperienceSection';
-import Header from './Header';
 import HeroSection from './HeroSection';
 import ProjectsSection from './ProjectsSection';
 import SkillsSection from './SkillsSection';
@@ -77,7 +76,6 @@ const Portfolio: React.FC = () => {
         style={{ fontFamily: "'Space Grotesk', 'Noto Sans', sans-serif" }}
       >
         <div className="flex flex-col">
-          <Header />
           <main className="px-4 md:px-10 lg:px-40 flex justify-center py-5">
             <div className="flex flex-col max-w-4xl w-full">
               <HeroSection personalInfo={personalInfo} />
