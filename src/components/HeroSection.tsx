@@ -1,5 +1,5 @@
 import type React from 'react';
-import iconImage from '../../public/icon.webp';
+import iconImage from '/icon.webp';
 import type { PersonalInfo } from '../types/types';
 
 interface HeroSectionProps {
