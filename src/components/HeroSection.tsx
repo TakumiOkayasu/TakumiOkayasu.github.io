@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
             <p className="text-blue-600 dark:text-blue-400 text-base font-normal leading-normal">
               {personalInfo.title}
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal max-w-2xl">
+            <p className="text-gray-700 dark:text-gray-400 text-base font-normal leading-normal max-w-2xl">
               {personalInfo.description}
             </p>
           </div>
