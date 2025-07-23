@@ -11,11 +11,18 @@
 }
 
 /* ダークモード時の背景色とテキスト色を強制適用 - より明るい文字 */
-.dark .bg-white { background-color: #1a202c !important; } /* 濃紺系の暗色 */
-.dark .dark\\:bg-gray-900 { background-color: #2d3748 !important; } /* 少し明るいグレー */
+.dark
+.bg-white {
+  background-color: #1a202c;
+} /* 濃紺系の暗色 */
+.dark .dark\\:bg-gray-900 {
+  background-color: #2d3748;
+} /* 少し明るいグレー */
 
 /* ライトモード時の背景色を目に優しい色に調整 */
-.bg-white { background-color: #fefefe !important; } /* 温かみのある白 */
+  .bg-white {
+  background-color: #fefefe;
+} /* 温かみのある白 */
 
 /* ダークモード対応のベース設定 - 目の疲労軽減 */
 :root {
@@ -66,7 +73,7 @@ body {
 }
 
 .dark body {
-  color: #ffffff !important; /* ダークモード時は明るい白 */
+  color: #ffffff; /* ダークモード時は明るい白 */
 }
 
 h1 {
@@ -75,67 +82,120 @@ h1 {
   color: #0f131a; /* 見出しはさらに濃い色 */
 }
 
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #ffffff !important; /* ダークモード時の見出しは明るい白 */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #ffffff; /* ダークモード時の見出しは明るい白 */
 }
 
 /* === 文字色の統一設定 === */
 
-/* ライトモード時: 全ての文字を暗く */
-.text-gray-100 { color: #1a202c !important; }
-.text-gray-200 { color: #1a202c !important; }
-.text-gray-300 { color: #1f2937 !important; }
-.text-gray-400 { color: #374151 !important; }
-.text-gray-500 { color: #4b5563 !important; }
-.text-gray-600 { color: #374151 !important; }
-.text-gray-700 { color: #1f2937 !important; }
-.text-gray-800 { color: #1a202c !important; }
-.text-gray-900 { color: #1a202c !important; }
+  /* ライトモード時: 全ての文字を暗く */
+  .text-gray-100 {
+  color: #1a202c;
+}
+.text-gray-200 {
+  color: #1a202c;
+}
+.text-gray-300 {
+  color: #1f2937;
+}
+.text-gray-400 {
+  color: #374151;
+}
+.text-gray-500 {
+  color: #4b5563;
+}
+.text-gray-600 {
+  color: #374151;
+}
+.text-gray-700 {
+  color: #1f2937;
+}
+.text-gray-800 {
+  color: #1a202c;
+}
+.text-gray-900 {
+  color: #1a202c;
+}
 
 /* ダークモード時: 全ての文字を明るく */
-.dark .text-gray-100 { color: #ffffff !important; }
-.dark .text-gray-200 { color: #fafafa !important; }
-.dark .text-gray-300 { color: #f3f4f6 !important; }
-.dark .text-gray-400 { color: #e5e7eb !important; }
-.dark .text-gray-500 { color: #d1d5db !important; }
-.dark .text-gray-600 { color: #e5e7eb !important; }
-.dark .text-gray-700 { color: #f3f4f6 !important; }
-.dark .text-gray-800 { color: #fafafa !important; }
-.dark .text-gray-900 { color: #ffffff !important; }
+.dark
+.text-gray-100 {
+  color: #ffffff;
+}
+.dark .text-gray-200 {
+  color: #fafafa;
+}
+.dark .text-gray-300 {
+  color: #f3f4f6;
+}
+.dark .text-gray-400 {
+  color: #e5e7eb;
+}
+.dark .text-gray-500 {
+  color: #d1d5db;
+}
+.dark .text-gray-600 {
+  color: #e5e7eb;
+}
+.dark .text-gray-700 {
+  color: #f3f4f6;
+}
+.dark .text-gray-800 {
+  color: #fafafa;
+}
+.dark .text-gray-900 {
+  color: #ffffff;
+}
 
 /* その他の文字色クラスも統一 */
-.text-white { color: #fefefe !important; }
-.dark .text-white { color: #ffffff !important; }
-.text-black { color: #1a202c !important; }
-.dark .text-black { color: #fafafa !important; }
+  .text-white {
+  color: #fefefe;
+}
+.dark .text-white {
+  color: #ffffff;
+}
+.text-black {
+  color: #1a202c;
+}
+.dark .text-black {
+  color: #fafafa;
+}
 
 
 /* === Skillsセクション専用の文字色（明るい色固定） === */
-#skills .text-gray-600,
+  #skills
+  .text-gray-600,
 #skills .text-gray-200,
 #skills .text-gray-900,
 #skills .text-gray-100,
 #skills p,
 #skills h2,
 #skills h3 {
-  color: #ffffff !important; /* 明るい白で固定 */
+  color: #ffffff; /* 明るい白で固定 */
 }
 
 /* Skillsセクションのバッジ背景（明るい文字とのコントラスト確保） */
-#skills .bg-gray-200 {
-  background-color: #374151 !important; /* ライトモード時も濃い背景 */
+  #skills
+  .bg-gray-200 {
+  background-color: #374151; /* ライトモード時も濃い背景 */
 }
 #skills .bg-gray-800 {
-  background-color: #1f2937 !important; /* ダークモード時も濃い背景 */
+  background-color: #1f2937; /* ダークモード時も濃い背景 */
 }
 
 /* Skillsセクションのバッジ内のスキルアイコンプレースホルダー */
-#skills .bg-gray-800 {
-  background-color: #4b5563 !important; /* アイコンプレースホルダーは中間色 */
+  #skills
+  .bg-gray-800 {
+  background-color: #4b5563; /* アイコンプレースホルダーは中間色 */
 }
 #skills .text-gray-100,
 #skills .text-gray-800 {
-  color: #ffffff !important; /* Skills内は常に明るい白 */
+  color: #ffffff; /* Skills内は常に明るい白 */
 }
 
 button {
