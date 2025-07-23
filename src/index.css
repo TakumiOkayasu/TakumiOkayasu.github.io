@@ -168,16 +168,12 @@ h1 {
 
 
 /* === Skillsセクション専用の文字色（明るい色固定） === */
-  #skills
-  .text-gray-600,
-#skills .text-gray-200,
-#skills .text-gray-900,
-#skills .text-gray-100,
-#skills p,
-#skills h2,
-#skills h3 {
-  color: #ffffff; /* 明るい白で固定 */
-}
+      .text-gray-600,
+    #skills .text-gray-200,
+    #skills p,
+    #skills h3 {
+      color: #ffffff; /* 明るい白で固定 */
+    }
 
 /* Skillsセクションのバッジ背景（明るい文字とのコントラスト確保） */
   #skills
