@@ -11,7 +11,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
       <div className="flex w-full flex-col gap-4 items-center">
         <div className="flex gap-4 flex-col items-center">
           <img
-            src="/public/icon.jpeg"
+            src="/icon.jpeg"
             alt="profile car"
             className="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 ring-4 ring-gray-200 dark:ring-gray-700 transition-all duration-300"
           />
