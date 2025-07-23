@@ -66,7 +66,7 @@ a {
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-heightを削除してコンテンツに合わせてシュリンク */
   /* 背景色はApp.cssのhtmlで設定するため、ここでは除外 */
   color: #1a202c; /* ライトモード時により暗い文字色 */
   transition: color 0.3s ease, background-color 0.3s ease;
