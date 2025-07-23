@@ -1,0 +1,7 @@
+# robots.txt
+# すべての検索エンジンボットに対する設定
+User-agent: *
+Allow: /
+
+# サイトマップの場所を指定（URLは実際のドメインに置き換えてください）
+# Sitemap: https://example.com/sitemap.xml

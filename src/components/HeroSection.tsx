@@ -10,9 +10,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
     <section className="flex p-4">
       <div className="flex w-full flex-col gap-4 items-center">
         <div className="flex gap-4 flex-col items-center">
-          <div
+          <img
+            src="/public/icon.jpeg"
+            alt="profile car"
             className="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 ring-4 ring-gray-200 dark:ring-gray-700 transition-all duration-300"
-            style={{ backgroundImage: `url('${personalInfo.avatar}')` }}
           />
           <div className="flex flex-col items-center justify-center text-center">
             <h2 className="text-gray-900 dark:text-gray-100 text-2xl font-bold leading-tight tracking-tight">
