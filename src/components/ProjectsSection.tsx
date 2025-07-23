@@ -8,20 +8,13 @@ interface ProjectsSectionProps {
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <article className="flex flex-col gap-3 pb-3 group">
-      <div
-        className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-100 dark:bg-gray-700 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg dark:group-hover:shadow-gray-900/30 flex items-center justify-center"
-        style={project.image ? { backgroundImage: `url('${project.image}')` } : {}}
-      >
-        {!project.image && <div className="text-gray-400 dark:text-gray-500 text-4xl">📁</div>}
-      </div>
-      <div>
-        <h3 className="text-gray-900 dark:text-gray-100 text-base font-medium leading-normal">
-          {project.title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
-          {project.description}
-        </p>
-      </div>
+      <div className="text-gray-400 dark:text-gray-500 text-4xl">📁</div>
+      <h3 className="text-gray-900 dark:text-gray-100 text-base font-medium leading-normal">
+        {project.title}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
+        {project.description}
+      </p>
     </article>
   );
 };
