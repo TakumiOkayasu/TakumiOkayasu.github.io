@@ -28,7 +28,8 @@
       "Bash(npx bun test:*)",
       "Bash(npm run test:*)",
       "Bash(bun:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(chmod:*)"
     ],
     "deny": [
       ".env"
