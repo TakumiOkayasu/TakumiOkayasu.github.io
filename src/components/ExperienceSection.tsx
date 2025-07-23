@@ -45,7 +45,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
       </div>
       <ExperienceTimeline experiences={experiences} />
       {experiences?.map(exp => (
-        <div key={`${exp.company}-detail`}>
+        <div key={`${exp.company}-${exp.position}-${exp.period}-detail`}>
           <h3 className="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-tight px-4 pb-2 pt-4">
             {exp.company} | {exp.period}
           </h3>
