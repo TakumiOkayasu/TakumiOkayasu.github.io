@@ -1,16 +1,56 @@
 @import "tailwindcss";
 
+/* TailwindCSS v4 ダークモード設定 - クラスベース優先 */
+@theme {
+  --default-dark-mode: class;
+}
+
+/* クラスベースダークモード設定を強化 - メディアクエリより優先 */
+.dark {
+  color-scheme: dark;
+}
+
+/* ダークモード時の背景色とテキスト色を強制適用 - 目に優しい色 */
+.dark .bg-white { background-color: #1a202c !important; } /* 濃紺系の暗色 */
+.dark .dark\\:bg-gray-900 { background-color: #2d3748 !important; } /* 少し明るいグレー */
+.dark .text-gray-900 { color: #f7fafc !important; } /* 柔らかい白 */
+.dark .dark\\:text-gray-100 { color: #f7fafc !important; } /* 柔らかい白 */
+
+/* ライトモード時の背景色を目に優しい色に調整 */
+.bg-white { background-color: #fefefe !important; } /* 温かみのある白 */
+.text-gray-900 { color: #1a202c !important; } /* より暗い色で読みやすく */
+
+/* ダークモード対応のベース設定 - 目の疲労軽減 */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6; /* 行間を少し広く */
   font-weight: 400;
-
   color-scheme: light dark;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ライトモードのデフォルト背景 - 目に優しい温白色 */
+html {
+  background-color: #fefefe; /* 純白より少し温かみのある白 */
+  color: #1a202c; /* より暗い色でコントラストを強化 */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* ダークモードの背景 */
+html.dark {
+  background-color: #1a202c; /* 純黒でなく濃紺系の暗色 */
+  color: #f7fafc; /* 純白でなく少し柔らかい白 */
+}
+
+/* body要素も確実に背景色を継承 + 目の疲労軽減 */
+body {
+  @apply bg-inherit;
+  /* 目に優しいフォント設定 */
+  letter-spacing: 0.025em; /* わずかな文字間隔でreadability向上 */
+  word-spacing: 0.1em; /* 単語間隔も少し広く */
 }
 
 a {
@@ -23,12 +63,32 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  /* 背景色はApp.cssのhtmlで設定するため、ここでは除外 */
+  color: #1a202c; /* ライトモード時により暗い文字色 */
+  @apply dark:text-gray-100 transition-colors duration-300;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #0f131a; /* 見出しはさらに濃い色 */
+}
+
+/* ライトモード時のグレーテキストも調整 */
+.text-gray-600 { color: #374151 !important; } /* より暗いグレー */
+.text-gray-700 { color: #1f2937 !important; } /* さらに暗いグレー */
+
+/* Skillsセクション内の文字色もライトモード時に暗く */
+.text-gray-100:not(.dark .text-gray-100) { 
+  color: #1a202c !important; /* スキルアイコンの頭文字も暗く */
+}
+
+/* Skillsセクションのバッジ内のスキルアイコンプレースホルダー */
+.bg-gray-800:not(.dark .bg-gray-800) {
+  background-color: #e5e7eb !important; /* ライトモード時は明るいグレー背景 */
+}
+.bg-gray-800:not(.dark .bg-gray-800) .text-gray-100 {
+  color: #1a202c !important; /* ライトモード時の頭文字は暗く */
 }
 
 button {
