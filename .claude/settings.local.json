@@ -24,7 +24,11 @@
       "Bash(timeout 30s npx cypress run:*)",
       "Bash(pkill:*)",
       "Bash(sed:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx bun test:*)",
+      "Bash(npm run test:*)",
+      "Bash(bun:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [
       ".env"

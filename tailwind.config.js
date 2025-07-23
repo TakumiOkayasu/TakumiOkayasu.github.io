@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // TailwindCSS v4では@darkディレクティブでclass-basedダークモードを設定
+  darkMode: ['selector', '.dark'],
   theme: {
     extend: {
       fontFamily: {
