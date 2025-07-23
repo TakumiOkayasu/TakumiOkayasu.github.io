@@ -1,29 +1,53 @@
 [
   {
-    "id": 1,
-    "title": "E-commerce Platform",
-    "description": "Developed a scalable e-commerce platform with features like product catalog, shopping cart, and payment gateway integration.",
-    "image": "",
-    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
-    "githubUrl": "",
-    "liveUrl": ""
+    "id": 7,
+    "title": "無在庫販売システムの開発・保守",
+    "description": "無在庫販売システムの開発・保守を担当。システム全体の速度改善、既存ソースコードのリファクタリング提案、より使いやすいUIの作成に取り組む。",
+    "technologies": ["VB.Net", "Windows"]
   },
   {
-    "id": 2,
-    "title": "Social Media App",
-    "description": "Built a social media application with user authentication, post creation, and real-time updates.",
-    "image": "",
-    "technologies": ["React", "Express.js", "Socket.io", "PostgreSQL"],
-    "githubUrl": "",
-    "liveUrl": ""
+    "id": 6,
+    "title": "社内SE（アプリケーション開発、インフラ整備、保守）",
+    "description": "1人社内SEとして社内IT全般を担当。LAN・Wi-Fi等のインフラの設計・運用・保守、業務効率化のためのシステム開発、RPA（UiPath）の展開、新規システムやサービスの導入時のプロジェクト計画・進捗管理を実施。",
+    "technologies": [
+      "Python",
+      "VBA",
+      "TypeScript",
+      "GAS",
+      "Windows",
+      "Ubuntu (WSL)",
+      "UiPath",
+      "kintone"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "自動車会社向け新試作車システム開発",
+    "description": "自動車会社向け新試作車システム開発および社内向け自動化プロジェクト開発を担当。テーブル定義書を自動で作成するプログラムを開発し、プロジェクト全体の工数削減に貢献。",
+    "technologies": ["VisualBasic", "C#", "Kotlin", "SQLServer", "Windows"]
+  },
+  {
+    "id": 4,
+    "title": "介護施設向けの介護システム開発",
+    "description": "介護施設向けシステムの詳細設計、改修作業、テストを担当。20年以上前のコードのリファクタリングを実施し、マジックナンバーの解消やコーディングルールの統一により保守性を向上。",
+    "technologies": ["Java", "C#", "PostgreSQL", "Oracle Database", "Windows"]
   },
   {
     "id": 3,
-    "title": "Data Analysis Tool",
-    "description": "Created a data analysis tool for visualizing and interpreting large datasets.",
-    "image": "",
-    "technologies": ["Python", "Django", "D3.js", "Pandas"],
-    "githubUrl": "",
-    "liveUrl": ""
+    "title": "自治体向けアウトソーシング事業",
+    "description": "経理事務主担当として月次決算・年次決算・監査対応を実施。また情報管理員として社内ネットワーク保守・セキュリティ管理も担当。",
+    "technologies": ["VBA", "Access", "Windows"]
+  },
+  {
+    "id": 2,
+    "title": "税理士業務補助システム",
+    "description": "税理士補助・社会保険労務士業務補助・行政書士業務補助を担当。月次決算・年次決算・各種税申告、給与計算・年末調整の業務を効率化。",
+    "technologies": ["VBA", "Windows"]
+  },
+  {
+    "id": 1,
+    "title": "プレミアム付き商品券事業システム",
+    "description": "プレミアム付き商品券事業の受付事務補助・内部事務補助・販売事務補助・販売業務補助を担当。商品券販売業務・換金業務を効率化。",
+    "technologies": ["VBA", "Windows"]
   }
 ]

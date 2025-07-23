@@ -11,10 +11,7 @@ const ExperienceTimeline: React.FC<{ experiences: Experience[] }> = ({ experienc
       {experiences.map((exp, index) => (
         <React.Fragment key={`${exp.company}-${index}`}>
           <div className="flex flex-col items-center gap-1 pt-1">
-            <div
-              className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6 ring-2 ring-gray-300 dark:ring-gray-600"
-              style={{ backgroundImage: `url('${exp.logo}')` }}
-            />
+            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6 ring-2 ring-gray-300 dark:ring-gray-600" />
             {index < experiences.length - 1 && (
               <div className="w-[1.5px] bg-gray-300 dark:bg-gray-600 h-2 grow transition-colors duration-300" />
             )}
@@ -42,7 +39,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experiences }) =>
             Work Experience
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
-            A timeline of my professional journey in software engineering
+            キャリアのタイムライン
           </p>
         </div>
       </div>

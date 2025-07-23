@@ -1,22 +1,66 @@
 [
   {
     "title": "Programming Languages",
-    "skills": ["Python", "Java", "JavaScript", "C++", "Go"]
+    "skills": [
+      "C言語",
+      "C++",
+      "C#",
+      "Java",
+      "Swift",
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "VBA",
+      "VB.Net",
+      "PHP",
+      "Kotlin",
+      "PHP",
+      "Go"
+    ]
   },
   {
     "title": "Frameworks & Libraries",
-    "skills": ["React", "Angular", "Vue.js", "Spring", "Node.js", "Express.js"]
+    "skills": [
+      "Git",
+      "Docker",
+      "React",
+      "Django",
+      "Laravel",
+      "CakePHP",
+      "Flutter",
+      "Jetpack Compose"
+    ]
   },
   {
     "title": "Databases",
-    "skills": ["MySQL", "PostgreSQL", "MongoDB", "Redis"]
+    "skills": ["MySQL", "PostgreSQL", "SQLServer", "Oracle Database", "Redis"]
   },
   {
     "title": "Tools",
-    "skills": ["Git", "Docker", "Kubernetes", "Jenkins", "AWS", "Azure"]
+    "skills": [
+      "Git",
+      "Docker",
+      "Biome",
+      "uv",
+      "Vim",
+      "prettier",
+      "eslint",
+      "GitHub",
+      "GitLab"
+    ]
   },
   {
     "title": "Platforms",
-    "skills": ["Linux", "macOS", "Windows", "Android"]
+    "skills": ["Linux", "macOS", "Windows", "Android", "iOS"]
+  },
+  {
+    "title": "Others",
+    "skills": [
+      "Microsoft Excel",
+      "Microsoft Word",
+      "Microsoft PowerPoint",
+      "Slack",
+      "Microsoft Teams"
+    ]
   }
 ]
