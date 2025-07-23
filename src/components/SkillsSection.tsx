@@ -5,48 +5,56 @@ import type { SkillCategory, SkillsSectionProps } from 'src/types/types';
 
 // スキル名とアイコンのマッピング
 const skillIconMap: Record<string, string> = {
-  // Frontend
-  React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-  TypeScript:
-    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-  JavaScript:
-    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-  'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-  'Vue.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-  'Tailwind CSS':
-    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
-  CSS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-  HTML: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-
-  // Backend
-  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-  Python: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-  Java: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+  // Programming Languages
+  'C言語': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg',
   'C++': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+  'C#': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
+  Java: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+  Swift: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg',
+  JavaScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  TypeScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  Python: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  VBA: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg',
+  'VB.Net': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg',
+  PHP: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+  Kotlin: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
   Go: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
-  Rust: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
 
-  // Database
-  PostgreSQL:
-    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-  MongoDB: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+  // Frameworks & Libraries
+  React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  Django: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
+  Laravel: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+  CakePHP: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cakephp/cakephp-original.svg',
+  Flutter: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+  'Jetpack Compose': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+
+  // Databases
   MySQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  PostgreSQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  SQLServer: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+  'Oracle Database': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg',
   Redis: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
 
-  // DevOps
-  Docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-  Kubernetes: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
-  AWS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+  // Tools
   Git: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  Docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+  Biome: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', // Biome用の代替アイコン
+  uv: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', // uv用の代替アイコン
+  Vim: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg',
+  prettier: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', // prettier用の代替アイコン
+  eslint: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg',
   GitHub: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
   GitLab: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg',
 
-  // その他
-  GraphQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
-  Firebase: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+  // Platforms
   Linux: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-  Ubuntu: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg',
-  Vim: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg',
+  macOS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg',
+  Windows: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg',
+  Android: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+  iOS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg',
+
+  // Others
+  Slack: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg',
 };
 
 interface SkillBadgeProps {
@@ -69,7 +77,9 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ skillName }) => {
           {skillName.charAt(0).toUpperCase()}
         </span>
       )}
-      <p className="text-gray-600 dark:text-gray-200 text-sm font-medium leading-normal">{skillName}</p>
+      <p className="text-gray-600 dark:text-gray-200 text-sm font-medium leading-normal">
+        {skillName}
+      </p>
     </div>
   );
 };
@@ -79,22 +89,30 @@ function isSkillCategory(category: SkillCategory): category is SkillCategory {
   return 'id' in category && 'name' in category;
 }
 
+// カテゴリ名を取得するヘルパー関数
+function getCategoryName(category: SkillCategory): string {
+  // titleプロパティがある場合（JSONデータの場合）
+  if ('title' in category && typeof category.title === 'string') {
+    return category.title;
+  }
+  // nameプロパティがある場合（SkillCategory型の場合）
+  if ('name' in category && typeof category.name === 'string') {
+    return category.name;
+  }
+  return 'Unknown Category';
+}
+
 const SkillCategorySection: React.FC<{ category: SkillCategory; index: number }> = ({
   category,
   index,
 }) => {
-  // デバッグ用ログ
-  console.log(`Category ${index}:`, category);
-
-  const categoryName = category.name;
+  const categoryName = getCategoryName(category);
 
   // スキルの取得と正規化
   const skills = category.skills;
   const skillNames: string[] = skills
     .map(skill => (typeof skill === 'string' ? skill : skill.name))
     .filter(Boolean);
-
-  console.log(`Skills for ${categoryName}:`, skillNames);
 
   if (skillNames.length === 0) {
     return null;
@@ -110,7 +128,7 @@ const SkillCategorySection: React.FC<{ category: SkillCategory; index: number }>
             className="w-8 h-8 object-contain"
           />
         )}
-        <h3 className="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-tight transition-colors duration-300">
+        <h3 className="text-gray-900 dark:text-gray-300 text-lg font-bold leading-tight tracking-tight transition-colors duration-300">
           {categoryName}
         </h3>
       </div>
@@ -124,11 +142,6 @@ const SkillCategorySection: React.FC<{ category: SkillCategory; index: number }>
 };
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories }) => {
-  // デバッグ用ログ
-  console.log('SkillsSection received:', skillCategories);
-  console.log('Type of skillCategories:', typeof skillCategories);
-  console.log('Is Array?', Array.isArray(skillCategories));
-
   if (!skillCategories || !Array.isArray(skillCategories) || skillCategories.length === 0) {
     console.log('No skill categories to render');
     return (

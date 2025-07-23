@@ -113,7 +113,7 @@ h1 {
   color: #374151;
 }
 .text-gray-700 {
-  color: #1f2937;
+  color: #1a202c !important; /* より暗い色に変更 */
 }
 .text-gray-800 {
   color: #1a202c;
@@ -168,12 +168,16 @@ h1 {
 
 
 /* === Skillsセクション専用の文字色（明るい色固定） === */
-      .text-gray-600,
-    #skills .text-gray-200,
-    #skills p,
-    #skills h3 {
-      color: #ffffff; /* 明るい白で固定 */
-    }
+  #skills
+  .text-gray-600,
+#skills .text-gray-200 {
+  color: #ffffff !important; /* 明るい白で固定 */
+}
+
+/* Skillsセクションのh3カテゴリ名は通常のテキスト色を適用 */
+#skills h3 {
+  color: inherit !important; /* 通常の文字色ルールを適用 */
+}
 
 /* Skillsセクションのバッジ背景（明るい文字とのコントラスト確保） */
   #skills

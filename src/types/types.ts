@@ -27,7 +27,6 @@ export interface PersonalInfo {
   name: string;
   title: string;
   description: string;
-  avatar: string;
   about: string;
 }
 
@@ -40,7 +39,7 @@ export interface Skill {
 
 export interface SkillCategory {
   id: number;
-  name: string;
+  title: string;
   icon_path?: string;
   skills: Skill[];
 }
