@@ -82,7 +82,7 @@ describe('useTheme フック', () => {
     expect(result.current.isDark).toBe(false);
     expect(localStorageMock.getItem).toHaveBeenCalledWith('isDark');
     expect(matchMediaMock).toHaveBeenCalledWith('(prefers-color-scheme: dark)');
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
+    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
   });
 
   test('保存された値がないときはシステム設定（ダークモード）で初期化する', () => {
@@ -104,7 +104,7 @@ describe('useTheme フック', () => {
 
     // 初期状態がシステム設定に基づいていることを確認
     expect(result.current.isDark).toBe(true);
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
+    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
   });
 
   test('保存された設定があるときはそれで初期化する', () => {
@@ -116,7 +116,7 @@ describe('useTheme フック', () => {
     // 保存された値が使用されることを確認
     expect(result.current.isDark).toBe(true);
     expect(localStorageMock.getItem).toHaveBeenCalledWith('isDark');
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
+    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
   });
 
   test('保存された設定（false）があるときはそれで初期化する', () => {
@@ -127,7 +127,7 @@ describe('useTheme フック', () => {
 
     // 保存された値が使用されることを確認
     expect(result.current.isDark).toBe(false);
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
+    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
   });
 
   test('toggle関数がテーマ状態を変更する', () => {
@@ -146,7 +146,7 @@ describe('useTheme フック', () => {
 
     // 状態が変更されることを確認
     expect(result.current.isDark).toBe(true);
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
+    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
     expect(localStorageMock.setItem).toHaveBeenCalledWith('isDark', 'true');
   });
 
@@ -166,7 +166,7 @@ describe('useTheme フック', () => {
 
     // 状態が変更されることを確認
     expect(result.current.isDark).toBe(false);
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
+    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
     expect(localStorageMock.setItem).toHaveBeenCalledWith('isDark', 'false');
   });
 
@@ -224,24 +224,53 @@ describe('useTheme フック', () => {
     const { result } = renderHook(() => useTheme());
 
     // 初期化時にclassListが操作されることを確認
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', false);
+    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
 
     // テーマ切り替え時にもclassListが操作されることを確認
     act(() => {
       result.current.toggle();
     });
 
-    expect(document.documentElement.classList.toggle).toHaveBeenCalledWith('dark', true);
+    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
   });
 
-  test('無効なlocalStorageデータをエラースローで処理する', () => {
+  test('無効なlocalStorageデータを適切に処理する', () => {
     // 不正なJSONデータをモック
     localStorageMock.getItem.mockReturnValue('invalid-json');
+    
+    // システム設定はライトモード
+    matchMediaMock.mockReturnValue({
+      matches: false,
+      media: '(prefers-color-scheme: dark)',
+      onchange: null,
+      addListener: mock(() => {}),
+      removeListener: mock(() => {}),
+      addEventListener: mock(() => {}),
+      removeEventListener: mock(() => {}),
+      dispatchEvent: mock(() => {}),
+    });
 
-    // JSON.parseエラーが発生することを確認
-    expect(() => {
-      renderHook(() => useTheme());
-    }).toThrow();
+    // コンソール警告をモック
+    const originalConsoleWarn = console.warn;
+    const consoleWarnMock = mock(() => {});
+    console.warn = consoleWarnMock;
+
+    const { result } = renderHook(() => useTheme());
+
+    // エラーをスローせずに、警告を出してシステムテーマに基づく初期化をする
+    expect(consoleWarnMock).toHaveBeenCalledWith(
+      'Failed to parse theme from localStorage:',
+      expect.any(Error)
+    );
+    
+    // システムテーマ（false）に基づく初期化
+    expect(result.current.isDark).toBe(false);
+    
+    // 不正なデータはlocalStorageから削除される
+    expect(localStorageMock.removeItem).toHaveBeenCalledWith('isDark');
+
+    // console.warnを復元
+    console.warn = originalConsoleWarn;
   });
 
   test('正しいフックインターフェースを返す', () => {
