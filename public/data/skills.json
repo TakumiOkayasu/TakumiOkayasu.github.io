@@ -22,13 +22,13 @@
     "title": "Frameworks & Libraries",
     "skills": [
       "Git",
-      "Docker",
       "React",
       "Django",
       "Laravel",
       "CakePHP",
       "Flutter",
-      "Jetpack Compose"
+      "Jetpack Compose",
+      "SwiftUI"
     ]
   },
   {
@@ -59,8 +59,8 @@
       "Microsoft Excel",
       "Microsoft Word",
       "Microsoft PowerPoint",
-      "Slack",
-      "Microsoft Teams"
+      "Microsoft Teams",
+      "Slack"
     ]
   }
 ]
