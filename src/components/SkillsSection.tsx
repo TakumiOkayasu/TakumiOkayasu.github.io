@@ -27,6 +27,7 @@ const skillIconMap: Record<string, string> = {
   CakePHP: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cakephp/cakephp-original.svg',
   Flutter: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
   'Jetpack Compose': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+  SwiftUI: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg',
 
   // Databases
   MySQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
@@ -55,6 +56,8 @@ const skillIconMap: Record<string, string> = {
 
   // Others
   Slack: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg',
+  'Visual Studio': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg',
+  'Visual Studio Code': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
 };
 
 interface SkillBadgeProps {
