@@ -46,7 +46,9 @@
       "prettier",
       "eslint",
       "GitHub",
-      "GitLab"
+      "GitLab",
+      "Visual Studio",
+      "Visual Studio Code"
     ]
   },
   {
@@ -60,9 +62,7 @@
       "Microsoft Word",
       "Microsoft PowerPoint",
       "Microsoft Teams",
-      "Slack",
-      "Visual Studio",
-      "Visual Studio Code"
+      "Slack"
     ]
   }
 ]
